@@ -1,0 +1,36 @@
+
+<%=form_for article do |f|%>
+Name:<%=f.text_field :name%>
+<br>
+Quantity:<%=f.number_field :quantity%>
+<br>
+price:<%=f.number_field :price%>
+<br>
+description:<%=f.text_field :description%>
+<br>
+weight:<%=f.number_field :weight%>
+<br>
+company:<%=f.text_field :company%>
+<br>
+Discount:<%=f.number_field :discount%>
+<br>
+Material:<%=f.text_field :material%>
+<br>
+colour:<%=f.text_field :colour%>
+<br>
+reviews:<%=f.text_field :review%>
+<br>
+height:<%=f.number_field :height%>
+<br>
+<%=f.file_field :articleimg %>
+<br>
+<%=f.file_field :articleimg1 %>
+<br>
+<%=f.file_field :articleimg2 %>
+<br>
+<%=f.file_field :articleimg3 %>
+<br>
+<%=f.file_field :articleimg4 %>
+<br>
+<%=f.submit%>
+<%end%>
