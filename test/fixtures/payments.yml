@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_id: MyString
+  amount: MyString
+  method: MyString
+  bank: MyString
+  email: MyString
+  contact_no: MyString
+  fee: MyString
+  tax: MyString
+
+two:
+  payment_id: MyString
+  amount: MyString
+  method: MyString
+  bank: MyString
+  email: MyString
+  contact_no: MyString
+  fee: MyString
+  tax: MyString
