@@ -156,20 +156,27 @@ a:link {
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu" style="width:100%;">
-					<a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
-
-							<li><a href="./products.html">Category</a>
+					<a href="index.html" class="logo pull-left"><img src="/assets/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="#">Filter</a>
 								<ul>
-									<li><a href="./products.html">Gifts </a></li>
-
+									<li><%=link_to"Price:High to Low",homepage_index_path(:filter_id => '1')%></li>
+									<li><%=link_to"Price:Low to High",homepage_index_path(:filter_id => '2')%></li>
+									<li><%=link_to"Ratings",homepage_index_path(:filter_id => '3')%></li>
+								</ul>
+							</li>
+							<li><a href="./products.html">Man</a></li>
+							<li><a href="./products.html">Sport</a>
+								<ul>
+									<li><a href="./products.html">Gifts and Tech</a></li>
 									<li><a href="./products.html">Ties and Hats</a></li>
 									<li><a href="./products.html">Cold Weather</a></li>
 								</ul>
 							</li>
-							<li><a href="./products.html">Today's Deal</a></li>
-							<li><a href="./products.html">Trending</a></li>
-							<li><a href="./products.html">Customer Service</a></li>
-
+							<li><a href="./products.html">Hangbag</a></li>
+							<li><a href="./products.html">Best Seller</a></li>
+							<li><a href="./products.html">Top Seller</a></li>
 						</ul>
 					</nav>
 				</div>

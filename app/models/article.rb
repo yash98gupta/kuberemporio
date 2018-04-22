@@ -15,10 +15,6 @@ class Article < ApplicationRecord
   has_attached_file :articleimg4, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :articleimg4, content_type: /\Aimage\/.*\z/
 
-<<<<<<< HEAD
   has_many :userratings
-=======
-  has_many :user_ratings
->>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 
 end
