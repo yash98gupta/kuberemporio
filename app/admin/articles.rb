@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do
 
- permit_params :description, :price, :ratings, :name, :company,:discount, :colour, :weight, :height, :material, :articleimg, :articleimg1, :articleimg2, :articleimg3, :articleimg4
+ permit_params :description, :price, :ratings,:quantity, :name, :company,:discount, :colour, :weight, :height, :material, :articleimg, :articleimg1, :articleimg2, :articleimg3, :articleimg4
 # permit params is for only updating the permited params
 
  filter :id

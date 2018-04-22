@@ -1,0 +1,33 @@
+<h2>Existing Addresses</h2>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Country</th>
+      <th scope="col">State</th>
+      <th scope="col">City</th>
+      <th scope="col">Street Name</th>
+      <th scope="col">House Number</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Landmark</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%@existing_addresses.each do |ed|%>
+      <td  class="text-center"><%=ed.country%></td>
+      <td class="text-center"><%=ed.state%></td>
+      <td class="text-center"><%=ed.city%></td>
+      <td class="text-center"><%=ed.street_name%></td>
+      <td class="text-center"><%=ed.house_no%></td>
+      <td class="text-center"><%=ed.pincode%></td>
+      <td class="text-center"><%=ed.landmark%></td>
+      <td class="text-center"><%=link_to"edit",editaddress_path(ed.id)%></td>
+      <td class="text-center"><%=link_to"delete",deleteaddress_path(ed.id),method: :delete%></td>
+    </tr>
+      <%end%>
+  </tbody>
+</table>
+<%=link_to"back", root_path%>
