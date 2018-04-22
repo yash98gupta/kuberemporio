@@ -3,6 +3,7 @@ class CheckoutController < ApplicationController
     @checkout_all=Checkout.all
     @cart_all=Shoppingcart.all.where(user_id:current_user.id)
     @shoppingcart_length=@cart_all.length
+
   end
 
   def new

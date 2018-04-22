@@ -32,6 +32,7 @@ class RazorpayController < ApplicationController
           @cart_destroy.destroy
         end
 
+
         # Razor_pay_order.new(
         #   payment_details_id:@payment.id,
         #

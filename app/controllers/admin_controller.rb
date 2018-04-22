@@ -11,11 +11,10 @@ class AdminController < ApplicationController
   end
 
   def show
-    
+
   end
 
-
-  def show_customer
+  def show_customers
     @customer_all=User.all
   end
 

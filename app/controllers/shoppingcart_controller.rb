@@ -4,7 +4,7 @@ class ShoppingcartController < ApplicationController
     @cart_all=Shoppingcart.all.where(user_id:current_user.id)
     @shoppingcart_length=@cart_all.length
     @sum=0
-  end
+end
 
 
   def create

@@ -122,6 +122,7 @@ a:link {
     text-decoration: none;
 }
 		</style>
+
 	</head>
     <body>
 		<div id="top-bar" class="container">
@@ -141,6 +142,7 @@ a:link {
 							<%if @shoppingcart_length!=0%>
 							<li><a href="/checkout/new">Checkout</a></li>
 							<%end%>
+
 							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
 							<%else%>
 							<li><%=link_to"Join",new_user_registration_path%></li>
@@ -155,18 +157,11 @@ a:link {
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu" style="width:100%;">
 					<a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
-					<nav id="menu" class="pull-right">
-						<ul>
-							<li><a href="#">Filter</a>
-								<ul>
-									<li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
-									<li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
-									<li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
-								</ul>
-							</li>
+
 							<li><a href="./products.html">Category</a>
 								<ul>
 									<li><a href="./products.html">Gifts </a></li>
+
 									<li><a href="./products.html">Ties and Hats</a></li>
 									<li><a href="./products.html">Cold Weather</a></li>
 								</ul>
@@ -174,6 +169,7 @@ a:link {
 							<li><a href="./products.html">Today's Deal</a></li>
 							<li><a href="./products.html">Trending</a></li>
 							<li><a href="./products.html">Customer Service</a></li>
+
 						</ul>
 					</nav>
 				</div>
@@ -198,6 +194,7 @@ a:link {
 			<section class="header_text">
 				Lorem ipsum dolor sit amet, oratio timeam cu per. Cu illum velit molestiae mel, an legimus facilisi repudiandae est
 				<br/>, utinam gloriatur vel et. Cu case veritus concludaturque eos. Eam omnes accusamus ea.
+
 			</section>
 			<section class="main-content">
 				<div class="row">
@@ -222,6 +219,7 @@ a:link {
 															<p><p><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
 															<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
 															<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
+
 															<p class="price">$<%=a.price%></p>
 														</div>
 													</li>
@@ -371,5 +369,6 @@ a:link {
 				});
 			});
 		</script>
+
     </body>
 </html>
