@@ -10,12 +10,17 @@ class AdminController < ApplicationController
 
   end
 
+<<<<<<< HEAD
   def show
     
   end
 
 
   def show_customer
+=======
+
+  def show_customers
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
     @customer_all=User.all
   end
 

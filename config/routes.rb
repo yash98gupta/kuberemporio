@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
   post 'razorpay/console'=>"razorpay#console"
   get 'razorpay/error' => "razorpay#error" ,as: "payment_error"
   get 'razorpay/index' => "razorpay#index" ,as: "payment_index"
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :buyitems
   resources :checkout
+<<<<<<< HEAD
   get 'myaccount/index' => "myaccount#index", as: "my_account_index"
   get 'myaccount/myorders' => "myaccount#myorders", as: "my_account_myorders"
 
@@ -23,6 +27,8 @@ Rails.application.routes.draw do
   delete 'myaccount/deleteaddress/:id' => "myaccount#deleteaddress" , as: "deleteaddress"
   patch 'myaccount/updateaddress/:id' => "myaccount#updateaddress"
 
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
   get 'admin/index' => "admin#index"
   get 'admin/item' => "admin#item" , as: "all_items"
   get 'admin/show_customers' => "admin#show_customers" , as: "all_customers"

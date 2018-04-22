@@ -2,8 +2,11 @@ class ShoppingcartController < ApplicationController
 
   def index
     @cart_all=Shoppingcart.all.where(user_id:current_user.id)
+<<<<<<< HEAD
     @shoppingcart_length=@cart_all.length
     @sum=0
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
   end
 
 

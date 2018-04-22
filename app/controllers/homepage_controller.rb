@@ -33,12 +33,15 @@ class HomepageController < ApplicationController
 end
 # upper action is not being used its a bad method to handle session we handle session through query params
 def index_root
+<<<<<<< HEAD
   if user_signed_in?
     @cart_all=Shoppingcart.all.where(user_id:current_user.id)
     @shoppingcart_length=@cart_all.length
   # else
   #   @shoppingcart_length=
   end
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
   Article.all.each do |a|
     @sum=0
     @user_rating=Userrating.where(article_id: a.id)

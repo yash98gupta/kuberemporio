@@ -17,6 +17,7 @@ class RazorpayController < ApplicationController
           tax:@answer_razor.tax
         )
         @payment.save
+<<<<<<< HEAD
         Shoppingcart.all.each do |f|
           byebug
           Order.create(
@@ -31,6 +32,8 @@ class RazorpayController < ApplicationController
           @cart_destroy=Shoppingcart.find(sc.id)
           @cart_destroy.destroy
         end
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 
         # Razor_pay_order.new(
         #   payment_details_id:@payment.id,

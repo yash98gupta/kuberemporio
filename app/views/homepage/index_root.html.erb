@@ -20,6 +20,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
+<<<<<<< HEAD
 		<style>
 		.menu {
     display: inline-block;
@@ -122,6 +123,8 @@ a:link {
     text-decoration: none;
 }
 		</style>
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 	</head>
     <body>
 		<div id="top-bar" class="container">
@@ -133,6 +136,7 @@ a:link {
 				</div>
 				<div class="span8" style="width:770px;">
 					<div class="account pull-right">
+<<<<<<< HEAD
 						<ul class="user-menu menu">
 							<li><%=link_to"Home",root_path%></li>
 							<li><%=link_to"My Account",my_account_index_path%></li>
@@ -141,6 +145,14 @@ a:link {
 							<%if @shoppingcart_length!=0%>
 							<li><a href="/checkout/new">Checkout</a></li>
 							<%end%>
+=======
+						<ul class="user-menu">
+							<li><a href="#">My Account</a></li>
+							<li><a href="/shoppingcart">Your Cart</a></li>
+							<li><a href="/checkout/new">Checkout</a></li>
+							<li><button id="rzp-button1">Pay</button></li>
+							<%if user_signed_in?%>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
 							<%else%>
 							<li><%=link_to"Join",new_user_registration_path%></li>
@@ -154,7 +166,11 @@ a:link {
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu" style="width:100%;">
+<<<<<<< HEAD
 					<a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+=======
+					<a href="index.html" class="logo pull-left"><img src="/assets/logo.png" class="site_logo" alt=""></a>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 					<nav id="menu" class="pull-right">
 						<ul>
 							<li><a href="#">Filter</a>
@@ -164,16 +180,29 @@ a:link {
 									<li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
 								</ul>
 							</li>
+<<<<<<< HEAD
 							<li><a href="./products.html">Category</a>
 								<ul>
 									<li><a href="./products.html">Gifts </a></li>
+=======
+							<li><a href="./products.html">Man</a></li>
+							<li><a href="./products.html">Sport</a>
+								<ul>
+									<li><a href="./products.html">Gifts and Tech</a></li>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 									<li><a href="./products.html">Ties and Hats</a></li>
 									<li><a href="./products.html">Cold Weather</a></li>
 								</ul>
 							</li>
+<<<<<<< HEAD
 							<li><a href="./products.html">Today's Deal</a></li>
 							<li><a href="./products.html">Trending</a></li>
 							<li><a href="./products.html">Customer Service</a></li>
+=======
+							<li><a href="./products.html">Hangbag</a></li>
+							<li><a href="./products.html">Best Seller</a></li>
+							<li><a href="./products.html">Top Seller</a></li>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 						</ul>
 					</nav>
 				</div>
@@ -196,8 +225,13 @@ a:link {
 				</div>
 			</section>
 			<section class="header_text">
+<<<<<<< HEAD
 				Lorem ipsum dolor sit amet, oratio timeam cu per. Cu illum velit molestiae mel, an legimus facilisi repudiandae est
 				<br/>, utinam gloriatur vel et. Cu case veritus concludaturque eos. Eam omnes accusamus ea.
+=======
+				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
+				<br/>Don't miss to use our cheap abd best bootstrap templates.
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 			</section>
 			<section class="main-content">
 				<div class="row">
@@ -220,8 +254,13 @@ a:link {
 														<div class="product-box">
 															<span class="sale_tag"></span>
 															<p><p><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
+<<<<<<< HEAD
 															<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
 															<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
+=======
+															<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
+															<a href="products.html" class="category">Commodo consequat</a>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 															<p class="price">$<%=a.price%></p>
 														</div>
 													</li>
@@ -371,5 +410,39 @@ a:link {
 				});
 			});
 		</script>
+<<<<<<< HEAD
+=======
+		<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+		<script>
+		    var options = {
+		        "key": "rzp_test_9dNXMHElNIZUh4",
+		        "amount": "2000", // 2000 paise = INR 20
+		        "name": "Merchant Name",
+		        "description": "Purchase Description",
+		        "image": "/your_logo.png",
+		        "handler": function (response){
+		            // alert(response.razorpay_payment_id);
+
+		            $.ajax({
+		                url:'/razorpay/console',
+		                type:'post',
+		                data: { "amount":options.amount,
+		                "payment_id":response.razorpay_payment_id}
+		              });
+									
+
+		        },
+		        "theme": {
+		            "color": "#F37254"
+		        }
+		    };
+		    var rzp1 = new Razorpay(options);
+
+		    document.getElementById('rzp-button1').onclick = function(e){
+		        rzp1.open();
+		        e.preventDefault();
+		    }
+		</script>
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
     </body>
 </html>

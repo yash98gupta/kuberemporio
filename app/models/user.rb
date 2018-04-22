@@ -9,5 +9,9 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :shoppingcarts
+<<<<<<< HEAD
   has_many :orders
+=======
+
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 end

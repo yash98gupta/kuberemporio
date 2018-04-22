@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180420222450) do
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -55,6 +56,9 @@ ActiveRecord::Schema.define(version: 20180420222450) do
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
+=======
+ActiveRecord::Schema.define(version: 20180418155103) do
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
 
   create_table "articles", force: :cascade do |t|
     t.text "description"
@@ -103,6 +107,7 @@ ActiveRecord::Schema.define(version: 20180420222450) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "orders", force: :cascade do |t|
     t.string "itemname"
     t.integer "quantity"
@@ -114,6 +119,8 @@ ActiveRecord::Schema.define(version: 20180420222450) do
     t.string "Status"
   end
 
+=======
+>>>>>>> 92422452049f5a93766e7474d468187e4397ccb8
   create_table "payments", force: :cascade do |t|
     t.string "payment_id"
     t.string "amount"
