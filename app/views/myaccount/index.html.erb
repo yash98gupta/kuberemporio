@@ -1,5 +1,168 @@
-<%=link_to"Previous Orders"%>
-<%=link_to"Current Orders"%>
-<%link_to"Order bills"%>
-<%link_to"shopping cart"%>
-<%link_to"Continue shopping"%>
+<!-- <div>
+  <a href="" class="">
+      <div>
+          <div>
+              <div>
+                  <div>
+                        <img src="">
+                  </div>
+                  <div>
+                        <h3></h3>
+                      <div>
+                        <span></span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </a>
+</div> -->
+<style>
+
+.rows
+{
+  width: 100%;
+  margin-left:100px;
+  margin-top: 50px;
+}
+
+.outer-box
+{
+  margin: 35px;
+  height: 40%;
+  width: 33%;
+  display: inline-table;
+  border-radius: 5px;
+  border: 1px #ddd solid;
+  background-color: #fff;
+}
+
+.img-box
+{
+  height: 110px;
+  width: 24%;
+  display: inline-block;
+}
+
+.text-box
+{
+  width: 24%;
+  height: 87px;
+  display: inline-block;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 9px;
+}
+
+a
+{
+  display: block;
+}
+
+a:hover
+{
+  background-color: #c1cad2;
+}
+
+</style>
+<div class="rows">
+
+  <%=link_to"back",root_path%>
+
+    <div class="outer-box">
+      <a href="/myaccount/myorders" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/Box.png" style="margin:4px;margin-top: 26px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Your Orders</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="/shoppingcart" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/shoppingcart.png" style="margin:3px;padding: 15px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Shopping Cart</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="/myaccount/myaddress" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/address.png" style="margin:4px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Your Addresses</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/lock.png" style="margin:4px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Login & Security</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/fav.png" style="margin:4px; height: 77px;padding: 13px;margin-top: 14px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Favourites</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/emporio.png" style="margin:4px; padding: 12px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Emporio Pay Balance</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+</div>

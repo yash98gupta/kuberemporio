@@ -20,6 +20,108 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
+		<style>
+		.menu {
+    display: inline-block;
+
+    background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+    -webkit-border-radius:0.2em;
+    -moz-border-radius:0.2em;
+    border-radius:0.2em;
+
+    border:1px solid #cecece;
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    -moz-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+}
+
+.menu li {
+    float:left;
+    position:relative;
+
+    border-right:1px solid #d8d8d8;
+    border-left:1px solid #ffffff;
+}
+.menu li:first-child { border-left:none; }
+.menu li:last-child  { border-right:none;}
+
+
+ span {
+    position:absolute;
+    top:-2em;
+    right: 0.5em;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    line-height:1.5em;
+    text-align:center;
+
+    ont-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,35),
+        0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+    box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+
+    -webkit-border-radius:4em;
+    -moz-border-radius:4em;
+    border-radius:4em;
+
+    opacity:0;
+filter: alpha(opacity=0);
+
+    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+    -moz-transition: .3s top ease-in, .3s opacity ease-in;
+    -o-transition: .3s top ease-in, .3s opacity ease-in;
+    -ms-transition: .3s top ease-in, .3s opacity ease-in;
+    transition: .3s top ease-in, .3s opacity ease-in;
+}
+
+.blue {
+    background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+    border:1px solid #79b5cb;
+}
+.menu li a {
+    color: #343434;
+}
+
+.menu li a span {
+    top:-1em;
+    opacity:1;
+filter: alpha(opacity=100);
+}
+a:link {
+    text-decoration: none;
+}
+		</style>
 	</head>
     <body>
 		<div id="top-bar" class="container">
@@ -31,12 +133,14 @@
 				</div>
 				<div class="span8" style="width:770px;">
 					<div class="account pull-right">
-						<ul class="user-menu">
-							<li><a href="#">My Account</a></li>
-							<li><a href="/shoppingcart">Your Cart</a></li>
-							<li><a href="/checkout/new">Checkout</a></li>
-							<li><button id="rzp-button1">Pay</button></li>
+						<ul class="user-menu menu">
+							<li><%=link_to"Home",root_path%></li>
+							<li><%=link_to"My Account",my_account_index_path%></li>
 							<%if user_signed_in?%>
+							<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+							<%if @shoppingcart_length!=0%>
+							<li><a href="/checkout/new">Checkout</a></li>
+							<%end%>
 							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
 							<%else%>
 							<li><%=link_to"Join",new_user_registration_path%></li>
@@ -50,7 +154,7 @@
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu" style="width:100%;">
-					<a href="index.html" class="logo pull-left"><img src="/assets/logo.png" class="site_logo" alt=""></a>
+					<a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
 					<nav id="menu" class="pull-right">
 						<ul>
 							<li><a href="#">Filter</a>
@@ -60,17 +164,16 @@
 									<li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
 								</ul>
 							</li>
-							<li><a href="./products.html">Man</a></li>
-							<li><a href="./products.html">Sport</a>
+							<li><a href="./products.html">Category</a>
 								<ul>
-									<li><a href="./products.html">Gifts and Tech</a></li>
+									<li><a href="./products.html">Gifts </a></li>
 									<li><a href="./products.html">Ties and Hats</a></li>
 									<li><a href="./products.html">Cold Weather</a></li>
 								</ul>
 							</li>
-							<li><a href="./products.html">Hangbag</a></li>
-							<li><a href="./products.html">Best Seller</a></li>
-							<li><a href="./products.html">Top Seller</a></li>
+							<li><a href="./products.html">Today's Deal</a></li>
+							<li><a href="./products.html">Trending</a></li>
+							<li><a href="./products.html">Customer Service</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -93,8 +196,8 @@
 				</div>
 			</section>
 			<section class="header_text">
-				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
-				<br/>Don't miss to use our cheap abd best bootstrap templates.
+				Lorem ipsum dolor sit amet, oratio timeam cu per. Cu illum velit molestiae mel, an legimus facilisi repudiandae est
+				<br/>, utinam gloriatur vel et. Cu case veritus concludaturque eos. Eam omnes accusamus ea.
 			</section>
 			<section class="main-content">
 				<div class="row">
@@ -117,8 +220,8 @@
 														<div class="product-box">
 															<span class="sale_tag"></span>
 															<p><p><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
-															<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-															<a href="products.html" class="category">Commodo consequat</a>
+															<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
+															<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
 															<p class="price">$<%=a.price%></p>
 														</div>
 													</li>
@@ -267,37 +370,6 @@
 					});
 				});
 			});
-		</script>
-		<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-		<script>
-		    var options = {
-		        "key": "rzp_test_9dNXMHElNIZUh4",
-		        "amount": "2000", // 2000 paise = INR 20
-		        "name": "Merchant Name",
-		        "description": "Purchase Description",
-		        "image": "/your_logo.png",
-		        "handler": function (response){
-		            // alert(response.razorpay_payment_id);
-
-		            $.ajax({
-		                url:'/razorpay/console',
-		                type:'post',
-		                data: { "amount":options.amount,
-		                "payment_id":response.razorpay_payment_id}
-		              });
-									
-
-		        },
-		        "theme": {
-		            "color": "#F37254"
-		        }
-		    };
-		    var rzp1 = new Razorpay(options);
-
-		    document.getElementById('rzp-button1').onclick = function(e){
-		        rzp1.open();
-		        e.preventDefault();
-		    }
 		</script>
     </body>
 </html>

@@ -11,6 +11,18 @@ Rails.application.routes.draw do
   resources :articles
   resources :buyitems
   resources :checkout
+  get 'myaccount/index' => "myaccount#index", as: "my_account_index"
+  get 'myaccount/myorders' => "myaccount#myorders", as: "my_account_myorders"
+
+  get 'myaccount/myaddress' => "myaccount#myaddress", as: "my_account_myaddress"
+
+  post 'myaccount/createaddress' => "myaccount#createaddress"
+  get 'myaccount/newaddress' => "myaccount#newaddress"
+  get 'myaccount/indexaddress' => "myaccount#indexaddress" , as: "indexaddress"
+  get 'myaccount/editaddress/:id' => "myaccount#editaddress", as: "editaddress"
+  delete 'myaccount/deleteaddress/:id' => "myaccount#deleteaddress" , as: "deleteaddress"
+  patch 'myaccount/updateaddress/:id' => "myaccount#updateaddress"
+
   get 'admin/index' => "admin#index"
   get 'admin/item' => "admin#item" , as: "all_items"
   get 'admin/show_customers' => "admin#show_customers" , as: "all_customers"
