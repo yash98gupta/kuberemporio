@@ -1,0 +1,22 @@
+<h2>Orders</h2>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Order Id</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment Details</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%@order.items.each do |order|%>
+      <td  class="text-center"><%=order['id']%></td>
+      <td class="text-center"><%=order['amount']%></td>
+      <td class="text-center"><%=link_to"payment Details",order_payment_info_path(order['id'])%></td>
+      <td class="text-center"><%=order['created_at']%></td>
+    </tr>
+      <%end%>
+  </tbody>
+</table>

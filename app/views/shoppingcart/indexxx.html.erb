@@ -1,0 +1,26 @@
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%@cart_all.each do |c|%>
+      <%if c.quantity!=0%>
+      <td  class="text-center"><%=c.itemname%></td>
+      <td  class="text-center"><%=c.quantity%></td>
+      <td  class="text-center"><%=link_to"Edit"%></td>
+      <td  class="text-center"><%=link_to"Remove",shoppingcart_path(c.id),method: :delete%></td>
+      <%end%>
+    </tr>
+      <%end%>
+  </tbody>
+</table>
+<%=link_to"proceed to checkout",new_checkout_path%>
+<br>
+<%=link_to"back",homepage_index_root_path%>

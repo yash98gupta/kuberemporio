@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<link href="/assets/bootstrap.min.css" rel="stylesheet">
+		<link href="/assets/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/assets/bootstrappage.css" rel="stylesheet"/>
+
+		<!-- global styles -->
+		<link href="/assets/flexslider.css" rel="stylesheet"/>
+		<link href="/assets/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="/assets/jquery-1.7.2.min.js"></script>
+		<script src="/assets/bootstrap.min.js"></script>
+		<script src="/assets/superfish.js"></script>
+		<script src="/assets/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+    <style>
+
+		a:link {
+	color: white;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	color: white;
+}
+a:active {
+	color: white;
+}
+.input_width
+{
+	width: 38px;
+}
+		.margin_style
+		{
+			margin-bottom: 10px;
+		}
+		.hide_update
+		{
+			display: none;
+		}
+		.show_update_nf
+		{
+		width: 38px;
+		margin-bottom: 2px;
+		}
+		.show_update_button
+		{
+		margin: 12px;
+		}
+
+		.row-fluid_changed
+		{
+			display:none;
+		}
+
+
+    td.text-center
+    {
+      text-align: center;
+    }
+    .menu {
+    display: inline-block;
+
+    background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+    -webkit-border-radius:0.2em;
+    -moz-border-radius:0.2em;
+    border-radius:0.2em;
+
+    border:1px solid #cecece;
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    -moz-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+  }
+
+  .menu li {
+    float:left;
+    position:relative;
+
+    border-right:1px solid #d8d8d8;
+    border-left:1px solid #ffffff;
+  }
+  .menu li:first-child { border-left:none; }
+  .menu li:last-child  { border-right:none;}
+
+
+  span {
+    position:absolute;
+    top:-2em;
+    right: 0.5em;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    line-height:1.5em;
+    text-align:center;
+
+    ont-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,35),
+        0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+    box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+
+    -webkit-border-radius:4em;
+    -moz-border-radius:4em;
+    border-radius:4em;
+
+    opacity:0;
+  filter: alpha(opacity=0);
+
+    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+    -moz-transition: .3s top ease-in, .3s opacity ease-in;
+    -o-transition: .3s top ease-in, .3s opacity ease-in;
+    -ms-transition: .3s top ease-in, .3s opacity ease-in;
+    transition: .3s top ease-in, .3s opacity ease-in;
+  }
+
+  .blue {
+    background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+    border:1px solid #79b5cb;
+  }
+  .menu li a {
+    color: #343434;
+  }
+
+  .menu li a span {
+    top:-1em;
+    opacity:1;
+  filter: alpha(opacity=100);
+  }
+  a:link {
+    text-decoration: none;
+  }
+	.tick
+	{
+		display: none;
+	}
+    </style>
+
+	</head>
+    <body>
+      <div id="top-bar" class="container">
+        <div class="row">
+          <div class="span4">
+            <form method="POST" class="search_form">
+              <input type="text" class="input-block-level search-query" Placeholder="eg. Bed">
+            </form>
+          </div>
+          <div class="span8" style="width:706px; display: inline-block;">
+            <div class="account pull-right">
+							<ul class="user-menu menu">
+								<li><%=link_to"Home",root_path%></li>
+								<%if current_user%>
+									<li><%=link_to"My Account",my_account_index_path%></li>
+								<%end%>
+								<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+								<li><a href="/checkout">Checkout</a></li>
+								<%if current_user%>
+								<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+								<%end%>
+								<%if !current_user%>
+								<li><%=link_to"Register",new_user_registration_path%></li>
+								<li><%=link_to"Login",new_user_session_path%></li>
+								<%end%>
+							</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="wrapper" class="container">
+        <section class="navbar main-menu">
+          <div class="navbar-inner main-menu" style="width:100%;">
+            <a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+            <nav id="menu" class="pull-right">
+              <ul style="margin:-11px">
+                <li><a href="#">Filter</a>
+                  <ul>
+                    <li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
+                    <li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
+                    <li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
+                  </ul>
+                </li>
+                <li><a href="./products.html">Category</a>
+                  <ul>
+                    <li><a href="./products.html">Gifts </a></li>
+                    <li><a href="./products.html">Ties and Hats</a></li>
+                    <li><a href="./products.html">Cold Weather</a></li>
+                  </ul>
+                </li>
+                <li><a href="./products.html">Today's Deal</a></li>
+                <li><a href="./products.html">Trending</a></li>
+                <li><a href="./products.html">Customer Service</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+				<section>
+					<div style="width: 100%;height: 48px;">
+						<ul style="display: flex;justify-content: space-evenly;list-style: none;margin-left: -100px;margin-right: 283px;">
+						<li style="display: inline-flex;">
+							<div style="height: 49px;width: 84px;">
+							<%=image_tag("icon")%>
+							</div>
+							<h6>Register</h3>
+						</li>
+						<li style="display: inline-flex;">
+						<div style="height: 49px;width: 84px;">
+							<%=image_tag("icon")%>
+							</div>
+							<h6>Delivery Details</h3>
+						</li>
+						<li style="display: inline-flex;">
+							<div style="height: 49px;width: 84px;">
+							<%=image_tag("icon")%>
+							</div>
+							<h6>Confirm Order</h3>
+						</li>
+						<li style="display: inline-flex;">
+							<h6>Payment</h3>
+						</li>
+					</div>
+				</section>
+        <section>
+          <div>
+            <div style="width: 25%;display: inline-block;background-color: lightgray;padding: 10px; float:right">
+              First Name: &nbsp<%=@confirm_order_checkout.last.first_name%>
+              <br>
+              <br>
+              Last Name: &nbsp<%=@confirm_order_checkout.last.last_name%>
+              <br>
+              <br>
+              Email Address: &nbsp<%=@confirm_order_checkout.last.email_address%>
+              <br>
+              <br>
+              Phone: &nbsp<%=@confirm_order_checkout.last.phone%>
+              <br>
+              <br>
+              House Number: &nbsp<%=@confirm_order_checkout.last.house_no%>
+              <br>
+              <br>
+              Street Name: &nbsp<%=@confirm_order_checkout.last.street_name%>
+              <br>
+              <br>
+              Landmark: &nbsp<%=@confirm_order_checkout.last.landmark%>
+              <br>
+              <br>
+              City: &nbsp<%=@confirm_order_checkout.last.city%>
+              <br>
+              <br>
+              Pincode: &nbsp<%=@confirm_order_checkout.last.pincode%>
+              <br>
+              <br>
+              State: &nbsp<%=@confirm_order_checkout.last.state%>
+              <br>
+              <br>
+              Country: &nbsp<%=@confirm_order_checkout.last.country%>
+              <br>
+              <br>
+              <%if @confirm_order_comments.length!=0%>
+              comments: &nbsp  <%=@confirm_order_comments.last.comments%>
+              <%end%>
+            </div>
+          </div>
+        </section>
+				<section class="main-content">
+					<div class="row">
+						<div class="span9" style="width:100%">
+							<h4 class="title"><span class="text"><strong>Your</strong> Cart</span></h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col"><%=submit_tag"Remove",class:'submit_button_fake'%></th>
+										<th scope="col">Image</th>
+										<th scope="col">Product Name</th>
+										<th scope="col">Quantity</th>
+										<th scope="col">Unit Price</th>
+										<th scope="col">Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<%@cart_all.each do |c|%>
+										<%=form_tag remove_from_shoppincart_path, method: :delete do%>
+										<td class="text-center"><%= check_box_tag "product_ids[]",c.id%></td>
+										<%=submit_tag "Remove",style:'display:none',class:'second'%>
+										<%end%>
+										<td class="text-center"><%=link_to image_tag(Article.where(id: c.item_id)[0].articleimg.url(:thumb)),buyitem_path(c.item_id)%></td>
+										<td class="text-center"><%=c.itemname%></td>
+										<!-- <td class="text-center"><%=c.quantity%></td> -->
+										<td class="text-center">
+											<%=form_tag shoppingcart_path(c.id),method: :patch do%>
+												 <%= hidden_field_tag :product_id, c.id %>
+											<!-- <input type="text" name="name" value="<%=c.quantity%>" class="span1 input_value" style="width: 38px;"> -->
+											<%=number_field_tag 'quantity',c.quantity,class: 'span1 input_value',style: 'width:64px',min:1%>
+												<div class="update_item hide_update">
+													<!-- <button class:'submit' style="margin-bottom:10px;"> -->
+														<!-- <%= link_to "Update",shoppingcart_path(:id => c.id),:method=>:patch %> -->
+														<%=submit_tag "Update",class:'submit'%>
+													<!-- </button> -->
+												</div>
+											<%end%>
+										</td>
+										<%if c.discount!=0%>
+										<td class="text-center">₹<%=c.item_price-((c.discount)*(c.item_price))/100%></td>
+										<td class="text-center">₹<%=c.quantity*(c.item_price-((c.discount)*(c.item_price))/100)%></td>
+										<%else%>
+										<td class="text-center"><%=c.item_price%></td>
+										<td class="text-center"><%=c.quantity * c.item_price %></td>
+										<%end%>
+									</tr>
+									<%end%>
+								</tbody>
+							</table>
+							<!-- <h4>What would you like to do next?</h4>
+							<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+							<label class="radio">
+								<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+								Use Coupon Code
+							</label>
+							<label class="radio">
+								<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+								Estimate Shipping &amp; Taxes
+							</label> -->
+							<!-- <hr> -->
+							<%@cart_all.each do |c|%>
+							<%if c.discount!=0%>
+							<%@sum = @sum + c.quantity * (c.item_price-((c.discount)*(c.item_price))/100)%>
+							<%else%>
+							<%@sum = @sum + c.quantity * c.item_price %>
+							<%end%>
+							<%end%>
+
+							<p class="cart-total right">
+								<strong>Sub-Total</strong>: ₹<%=@sum%><br>
+								<strong>Eco Tax (-2.00)</strong>: ₹2.00<br>
+								<strong>VAT (17.5%)</strong>: ₹17.50<br>
+								<strong>Total</strong>: ₹<%=@sum+2+17.50%><br>
+							</p>
+							<hr/>
+							<br>
+							<br>
+							<br>
+							<p class="buttons center">
+								<!-- <button class="btn" type="button">Update</button> -->
+								<button class="btn btn-inverse" id="rzp-button1">Pay</button>
+							</p>
+						</div>
+					</div>
+				</section>
+				<script src="/assets/jquery-1.7.2.min.js"></script>
+				<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+				<script>
+				    var options = {
+				        "key": "rzp_test_9dNXMHElNIZUh4",
+				        "amount": '<%=(@sum.to_i+2+17.50)*100%>', // 2000 paise = INR 20
+				        "name": "Merchant Name",
+				        "description": "Purchase Description",
+				        "image": "/your_logo.png",
+				        "handler": function (response){
+				            // alert(response.razorpay_payment_id);
+
+				          $.ajax({
+				              url:'/razorpay/console',
+				              type:'post',
+				              data: { "amount":options.amount,
+				              "payment_id":response.razorpay_payment_id}
+				            });
+
+				              console.log("yoyoyoy");
+				        },
+				        "theme": {
+				            "color": "#F37254"
+				        }
+				    };
+				    var rzp1 = new Razorpay(options);
+
+				    document.getElementById('rzp-button1').onclick = function(e){
+
+				        console.log("hello");
+				        rzp1.open();
+				        e.preventDefault();
+				    }
+				</script>
+
+				<script>
+		$(".input_value").bind("change paste keyup", function() {
+
+					input_value_quantity=document.getElementsByClassName('input_value')
+					input_value_quantity[0].classList.add("show_update_nf");
+
+					update_button=document.getElementsByClassName('hide_update')
+					update_button[0].classList.add("show_update_button");
+						update_button[0].style.display = 'inline-block';
+					update_button[0].classList.removeClass("hide_update");
+				})
+				</script>
+<script>
+$(document).ready(function() {
+					$(".submit_button_fake").click(function(){
+					  $(".second").click();
+						return false;
+					});
+				});
+</script>

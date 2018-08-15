@@ -1,0 +1,17 @@
+<%=form_for @address_new, :url => {:controller => "myaccount", :action => "createaddress"} do |f|%>
+Country:<%=f.text_field :country%>
+<br>
+State:<%=f.text_field :state%>
+<br>
+City:<%=f.text_field :city%>
+<br>
+Street Name:<%=f.text_field :street_name%>
+<br>
+House Number:<%=f.text_field :house_no%>
+<br>
+Pincode:<%=f.number_field :pincode%>
+<br>
+Landmark:<%=f.text_field :landmark%>
+<br>
+<%=f.submit%>
+<%end%>

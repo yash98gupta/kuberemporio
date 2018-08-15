@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<!-- global styles -->
+		<link href="/assets/flexslider.css" rel="stylesheet"/>
+		<link href="/assets/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+
+		<script src="/assets/jquery-1.7.2.min.js"></script>
+		<script src="/assets/superfish.js"></script>
+		<script src="/assets/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+		<style>
+
+		.menu {
+    display: inline-block;
+
+    background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+    -webkit-border-radius:0.2em;
+    -moz-border-radius:0.2em;
+    border-radius:0.2em;
+
+    border:1px solid #cecece;
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    -moz-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+}
+
+.menu li {
+    float:left;
+    position:relative;
+
+    border-right:1px solid #d8d8d8;
+    border-left:1px solid #ffffff;
+}
+.menu li:first-child { border-left:none; }
+.menu li:last-child  { border-right:none;}
+
+
+ span {
+    position:absolute;
+    top:-2em;
+    right: 0.5em;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    line-height:1.5em;
+    text-align:center;
+
+    ont-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,35),
+        0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+    box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+
+    -webkit-border-radius:4em;
+    -moz-border-radius:4em;
+    border-radius:4em;
+
+    opacity:0;
+filter: alpha(opacity=0);
+
+    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+    -moz-transition: .3s top ease-in, .3s opacity ease-in;
+    -o-transition: .3s top ease-in, .3s opacity ease-in;
+    -ms-transition: .3s top ease-in, .3s opacity ease-in;
+    transition: .3s top ease-in, .3s opacity ease-in;
+}
+
+.blue {
+    background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+    border:1px solid #79b5cb;
+}
+.menu li a {
+    color: #343434;
+}
+
+.menu li a span {
+    top:-1em;
+    opacity:1;
+filter: alpha(opacity=100);
+}
+a:link {
+    text-decoration: none;
+}
+
+#loading {
+	position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index:99;
+			background-image: url("https://media.giphy.com/media/JEFEZtkinGINi/giphy.gif");
+			background-size: 50%;
+			background-position: 50% 50%;
+			background-color: #f6f6f6;
+			background-repeat: no-repeat;
+}
+.show_img
+{
+	 display :none;
+}
+.speech-bubble {
+	float: right;
+	width: 40px;
+	position: relative;
+	background: #24e0f3;
+	border-radius: .4em;
+	z-index: 1;
+	margin-bottom: -21px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #24e0f3;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -7px;
+	margin-bottom: -10px;
+}
+.heart_red
+{
+	margin-bottom: -21px;
+    float: left;
+    margin-left: 9px;
+    font-size: 1.45em;
+    display:none;
+    color: #e2470d;
+    position: relative;
+}
+.home{
+	width: 73.1%;
+}
+		</style>
+	</head>
+    <body>
+			<div id="loading"></div>
+		<div id="top-bar" class="container" style="width:91%">
+			<div class="row">
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="eg. Bed">
+					</form>
+				</div>
+				<div class="span8" style="width:770px;">
+					<div class="account pull-right">
+						<ul class="user-menu menu">
+							<li><%=link_to"Home",root_path%></li>
+							<%if current_user%>
+								<li><%=link_to"My Account",my_account_index_path%></li>
+							<%end%>
+							<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+							<li><a href="/checkout">Checkout</a></li>
+							<%if current_user%>
+							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+							<%end%>
+							<%if !current_user%>
+							<li><%=link_to"Register",new_user_registration_path%></li>
+							<li><%=link_to"Login",new_user_session_path%></li>
+							<%end%>
+							<!-- <li><%=link_to"Home",root_path%></li> -->
+							<!-- <%if current_user%> -->
+							<!-- <%if @shoppingcart_length!=0%> -->
+							<!-- <li><%=link_to"My Account",my_account_index_path%></li> -->
+							<!-- <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li> -->
+							<!-- <li><a href="/checkout/new">Checkout</a></li> -->
+							<!-- <%end%> -->
+							<!-- <li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+
+							<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+							<li><%=link_to"Join",new_user_registration_path%></li>
+							<li><%=link_to"Login",new_user_session_path%></li> -->
+							<!-- <%end%> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container" style="width:91%;">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu" style="width:100%;">
+					<a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="#">Filter</a>
+								<ul>
+									<li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
+									<li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
+									<li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
+								</ul>
+							</li>
+							<li><a href="./products.html">Category</a>
+								<ul>
+									<li><a href="./products.html">Gifts </a></li>
+									<li><a href="./products.html">Ties and Hats</a></li>
+									<li><a href="./products.html">Cold Weather</a></li>
+								</ul>
+							</li>
+							<li><a href="./products.html">Today's Deal</a></li>
+							<li><a href="./products.html">Trending</a></li>
+							<li><a href="./products.html">Customer Service</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<section  class="homepage-slider show_img" id="home-slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<%=image_tag("ke-1.jpg")%>
+						</li>
+						<li>
+							<%=image_tag("ke-2.jpg")%>
+							<div class="intro">
+								<h1>Mid season sale</h1>
+								<p><span>Up to 50% Off</span></p>
+								<p><span>On selected items online and in stores</span></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="header_text">
+				Lorem ipsum dolor sit amet, oratio timeam cu per. Cu illum velit molestiae mel, an legimus facilisi repudiandae est
+				<br/>, utinam gloriatur vel et. Cu case veritus concludaturque eos. Eam omnes accusamus ea.
+			</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span12">
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Feature <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											    <%=will_paginate @article_all%>
+											<ul class="thumbnails">
+												<%@article_all.each do |a|%>
+													<li class="span3">
+														<div class="product-box">
+															<%if a.favourite==true%>
+															<div class="heart_red" id="heart_red_display<%=a.id%>" onmousemove="heart_js_show(heart_red_display<%=a.id%>.id)"><i class="fas fa-heart" id="heart_red_s<%=a.id%>5" onclick="heart_js('heart_red_s<%=a.id%>5',<%=a.id%>)"></i></div>
+															<%else%>
+															<div class="heart_red" id="heart_red_display<%=a.id%>" onmousemove="heart_js_show(heart_red_display<%=a.id%>.id)"><i class="far fa-heart" id="heart_red_s<%=a.id%>5" onclick="heart_js('heart_red_s<%=a.id%>5',<%=a.id%>)"></i></div>
+															<%end%>
+															<%if a.discount != 0.0%>
+															<div class="speech-bubble speech-bubble:after"><%=a.discount.to_i%>%</div>
+															<%end%>
+															<p><p onmousemove="heart_js_show(heart_red_display<%=a.id%>.id)" onmouseout="heart_js_hide(heart_red_display<%=a.id%>.id)"><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
+															<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
+															<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
+															<p class="price">$<%=a.price%></p>
+														</div>
+													</li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br/>
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel-2" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">
+												<%@article_all.each do |a|%>
+												<li class="span3">
+													<div class="product-box">
+														<%if a.favourite==true%>
+														<div class="heart_red" id="heart_red_display<%=a.id%>1" onmousemove="heart_js_show(heart_red_display<%=a.id%>1.id)"><i class="fas fa-heart" id="heart_red_s<%=a.id%>6" onclick="heart_js('heart_red_s<%=a.id%>6',<%=a.id%>)"></i></div>
+														<%else%>
+															<div class="heart_red" id="heart_red_display<%=a.id%>1" onmousemove="heart_js_show(heart_red_display<%=a.id%>1.id)"><i class="far fa-heart" id="heart_red_s<%=a.id%>6" onclick="heart_js('heart_red_s<%=a.id%>6',<%=a.id%>)"></i></div>
+                            <%end%>
+																<!-- <div class="heart_red" id="heart_red_display<%=a.id%>1" onmousemove="heart_js_show(heart_red_display<%=a.id%>1.id)"><i class="far fa-heart"></i></div> -->
+														<%if a.discount != 0.0%>
+														<div class="speech-bubble speech-bubble:after"><%=a.discount.to_i%>%</div>
+														<%end%>
+														<p><p onmousemove="heart_js_show(heart_red_display<%=a.id%>1.id)" onmouseout="heart_js_hide(heart_red_display<%=a.id%>1.id)"><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
+														<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
+														<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
+														<p class="price">$<%=a.price%></p>
+													</div>
+												</li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row feature_box">
+							<div class="span4">
+								<div class="service">
+									<div class="responsive">
+										<img src="/assets/feature_img_2.png" alt="" />
+										<h4>MODERN <strong>DESIGN</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="service">
+									<div class="customize">
+										<img src="/assets/feature_img_1.png" alt="" />
+										<h4>FREE <strong>SHIPPING</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="service">
+									<div class="support">
+										<img src="/assets/feature_img_3.png" alt="" />
+										<h4>24/7 LIVE <strong>SUPPORT</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="our_client">
+				<h4 class="title"><span class="text">Manufactures</span></h4>
+				<div class="row">
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/14.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/35.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/1.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/2.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/3.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/4.png"></a>
+					</div>
+				</div>
+			</section>
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span3">
+						<h4>Navigation</h4>
+						<ul class="nav">
+							<li><a href="./index.html">Homepage</a></li>
+							<li><a href="./about.html">About Us</a></li>
+							<li><a href="./contact.html">Contac Us</a></li>
+							<li><a href="./cart.html">Your Cart</a></li>
+							<li><a href="./register.html">Login</a></li>
+						</ul>
+					</div>
+					<div class="span4">
+						<h4>My Account</h4>
+						<ul class="nav">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Newsletter</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<p class="logo"><img src="/assets/logo.png" class="site_logo" alt=""></p>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<br/>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>
+				</div>
+			</section>
+			<section id="copyright">
+				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
+			</section>
+		</div>
+		<script src="/assets/common.js"></script>
+		<script src="/assets/jquery.flexslider-min.js"></script>
+		<script type="text/javascript">
+
+			jQuery(window).ready(function(event) {
+
+				$('.flexslider').flexslider({
+					animation: "fade",
+					slideshowSpeed: 4000,
+					animationSpeed: 600,
+					controlNav: false,
+					directionNav: true,
+					controlsContainer: ".flex-container" // the container that holds the flexslider
+				});
+});
+		</script>
+		<script>
+		function heart_js_show(x)
+		{
+			// console.log(x)
+				var heart = document.getElementById(x);
+				heart.style.display='inline-block'
+
+			}
+			function heart_js_hide(x)
+			{
+				// console.log(x)
+					var heart = document.getElementById(x);
+					heart.style.display='none'
+
+				}
+
+				function heart_js(x,y)
+				{
+
+					console.log(x);
+					console.log(y);
+					var icon = document.getElementById(x);
+					// element.classList.remove("far");
+					// element.classList.add("fas");
+					// var icon = $('x');
+						console.log(icon)
+					var icon_fa_prefix = icon.getAttribute('data-prefix');
+
+					if (icon_fa_prefix === 'fas') {
+					    icon.setAttribute('data-prefix', 'far');
+
+	          $.ajax({
+	              url:'/articles/favourites',
+	              type:'post',
+	              data: { "fav":false,
+	              "product_id":y}
+	            });
+
+					} else {
+					    icon.setAttribute('data-prefix', 'fas');
+							$.ajax({
+									url:'/articles/favourites',
+									type:'post',
+									data: { "fav":true,
+									"product_id":y}
+								});
+					}
+
+				}
+		</script>
+		<script>
+
+			// $(window).load(function() {
+				// setTimeout(, 3000);
+				var myFunc = function() {
+					console.log("hellooololol")
+				  $('#loading').hide();
+					var element = document.getElementById("home-slider");
+					element.classList.remove("show_img");
+				}
+				window.onload = function() {
+					console.log("yoyo");
+				  setTimeout(myFunc, 500);
+				}
+			// });
+		</script>
+		</body>
+</html>

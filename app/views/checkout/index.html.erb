@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<link href="/assets/bootstrap.min.css" rel="stylesheet">
+		<link href="/assets/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/assets/bootstrappage.css" rel="stylesheet"/>
+
+		<!-- global styles -->
+		<link href="/assets/flexslider.css" rel="stylesheet"/>
+		<link href="/assets/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="/assets/jquery-1.7.2.min.js"></script>
+		<script src="/assets/bootstrap.min.js"></script>
+		<script src="/assets/superfish.js"></script>
+		<script src="/assets/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+    <style>
+		#loading {
+			position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index:99;
+					background-image: url("https://media.giphy.com/media/JEFEZtkinGINi/giphy.gif");
+					background-size: 50%;
+					background-position: 50% 50%;
+					background-color: #f6f6f6;
+					background-repeat: no-repeat;
+		}
+
+		.row-fluid_changed
+		{
+			display:none;
+		}
+
+
+    td.text-center
+    {
+      text-align: center;
+    }
+    .menu {
+    display: inline-block;
+
+    background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+    -webkit-border-radius:0.2em;
+    -moz-border-radius:0.2em;
+    border-radius:0.2em;
+
+    border:1px solid #cecece;
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    -moz-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+  }
+
+  .menu li {
+    float:left;
+    position:relative;
+
+    border-right:1px solid #d8d8d8;
+    border-left:1px solid #ffffff;
+  }
+  .menu li:first-child { border-left:none; }
+  .menu li:last-child  { border-right:none;}
+
+
+  span {
+    position:absolute;
+    top:-2em;
+    right: 0.5em;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    line-height:1.5em;
+    text-align:center;
+
+    ont-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,35),
+        0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+    box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+
+    -webkit-border-radius:4em;
+    -moz-border-radius:4em;
+    border-radius:4em;
+
+    opacity:0;
+  filter: alpha(opacity=0);
+
+    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+    -moz-transition: .3s top ease-in, .3s opacity ease-in;
+    -o-transition: .3s top ease-in, .3s opacity ease-in;
+    -ms-transition: .3s top ease-in, .3s opacity ease-in;
+    transition: .3s top ease-in, .3s opacity ease-in;
+  }
+
+  .blue {
+    background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+    border:1px solid #79b5cb;
+  }
+  .menu li a {
+    color: #343434;
+  }
+
+  .menu li a span {
+    top:-1em;
+    opacity:1;
+  filter: alpha(opacity=100);
+  }
+  a:link {
+    text-decoration: none;
+  }
+    </style>
+
+	</head>
+    <body>
+			<div id="loading"></div>
+      <div id="top-bar" class="container">
+        <div class="row">
+          <div class="span4">
+            <form method="POST" class="search_form">
+              <input type="text" class="input-block-level search-query" Placeholder="eg. Bed">
+            </form>
+          </div>
+          <div class="span8" style="width:706px; display: inline-block;">
+            <div class="account pull-right">
+							<ul class="user-menu menu">
+								<li><%=link_to"Home",root_path%></li>
+								<%if current_user%>
+									<li><%=link_to"My Account",my_account_index_path%></li>
+								<%end%>
+								<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+								<li><a href="/checkout">Checkout</a></li>
+								<%if current_user%>
+								<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+								<%end%>
+								<%if !current_user%>
+								<li><%=link_to"Register",new_user_registration_path%></li>
+								<li><%=link_to"Login",new_user_session_path%></li>
+								<%end%>
+							</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="wrapper" class="container">
+        <section class="navbar main-menu">
+          <div class="navbar-inner main-menu" style="width:100%;">
+            <a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+            <nav id="menu" class="pull-right">
+              <ul style="margin:-11px">
+                <li><a href="#">Filter</a>
+                  <ul>
+                    <li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
+                    <li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
+                    <li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
+                  </ul>
+                </li>
+                <li><a href="./products.html">Category</a>
+                  <ul>
+                    <li><a href="./products.html">Gifts </a></li>
+                    <li><a href="./products.html">Ties and Hats</a></li>
+                    <li><a href="./products.html">Cold Weather</a></li>
+                  </ul>
+                </li>
+                <li><a href="./products.html">Today's Deal</a></li>
+                <li><a href="./products.html">Trending</a></li>
+                <li><a href="./products.html">Customer Service</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+				<section>
+					<div style="width: 100%;height: 48px;">
+						<ul style="display: flex;justify-content: space-evenly;list-style: none;">
+						<li style="display: inline-flex;">
+							<%if current_user%>
+							<div style="height: 49px;width: 84px;">
+							<%=image_tag("icon")%>
+							</div>
+							<%end%>
+							<h6>Register</h3>
+						</li>
+						<li style="display: inline-flex;">
+								<%if @confirm_order_accordian%>
+						<div style="height: 49px;width: 84px;">
+							<%=image_tag("icon")%>
+							</div>
+							<%end%>
+							<h6>Delivery Details</h3>
+						</li>
+						<li style="display: inline-flex;">
+							<h6>Confirm Order</h3>
+						</li>
+						<li style="display: inline-flex;">
+							<h6>Payment</h3>
+						</li>
+					</div>
+				</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span12">
+						<div class="accordion" id="accordion2">
+							<%if !current_user%>
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" id="checkout_a_tag" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Checkout Options</a>
+								</div>
+								<div id="collapseOne" class="accordion-body in collapse">
+									<div class="accordion-inner">
+										<div class="row-fluid">
+											<div class="span6">
+												<h4>New Customer</h4>
+												<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+												<form action="register" method="get">
+													<fieldset>
+														<label class="radio" for="register">
+															<input type="radio" name="account" value="register" id="register" checked="checked">Register Account
+														</label>
+														<br>
+														<button class="btn btn-inverse" data-toggle="collapse" data-parent="#collapse2" id="continue-btn">Continue</button>
+													</fieldset>
+												</form>
+												<!-- <%= form_tag checkout_register_path	 do %>
+												<p> <%= radio_button_tag :gender,  "new" %> Register </p>
+												<p> <%= radio_button_tag :gender, "guest" %> Guest </p>
+												<p> <%= submit_tag 'Continue' %> </p>
+												<% end %> -->
+											 </div>
+											 <div class="span6">
+												<h4>Returning Customer</h4>
+												<p>I am a returning customer</p>
+
+												<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+													<%= f.hidden_field :qp, value: 'login_qp' %>
+
+													<% flash.each do |name, msg| %>
+
+												<!-- # New code (allow for flash elements to be arrays) -->
+													<% if msg.class == Array %>
+														<% msg.each do |message| %>
+															<%= content_tag :div, message, :id => "flash_#{name}" %>
+														<% end %>
+												<% else %>
+
+													<!-- # old code -->
+													<%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+												<% end %>
+											<% end %>
+
+													<div class="field">
+														<%= f.label :email %><br />
+														<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+													</div>
+
+													<div class="field">
+														<%= f.label :password %><br />
+														<%= f.password_field :password, autocomplete: "off" %>
+													</div>
+
+													<% if devise_mapping.rememberable? -%>
+														<div class="field">
+															<%= f.check_box :remember_me %>
+															<%= f.label :remember_me %>
+														</div>
+													<% end -%>
+
+													<div class="actions">
+														<%= f.submit "Log in" %>
+													</div>
+												<% end %>
+
+
+
+
+												<!-- <form action="#" method="post">
+													<fieldset>
+														<div class="control-group">
+															<label class="control-label">Username</label>
+															<div class="controls">
+																<input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label">Password</label>
+															<div class="controls">
+															<input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
+															</div>
+														</div>
+														<button class="btn btn-inverse">Continue</button>
+													</fieldset>
+												</form> -->
+											</div>
+										</div>
+										<div class="row-fluid_changed">
+
+										<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+										<%= f.hidden_field :checkout, value: 'checkout_back' %>
+										<% flash.each do |name, msg| %>
+
+									<!-- # New code (allow for flash elements to be arrays) -->
+									<% if msg.class == Array %>
+										<% msg.each do |message| %>
+											<%= content_tag :div, message, :id => "flash_#{name}" %>
+										<% end %>
+									<% else %>
+
+										<!-- # old code -->
+										<%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+									<% end %>
+								<% end %>
+
+								<br>
+										  <div class="field">
+										    <%= f.label :email %><br />
+										    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+										  </div>
+
+										  <div class="field">
+										    <%= f.label :password %>
+										    <% if @minimum_password_length %>
+										    <em>(<%= @minimum_password_length %> characters minimum)</em>
+										    <% end %><br />
+										    <%= f.password_field :password, autocomplete: "off" %>
+										  </div>
+
+										  <div class="field">
+										    <%= f.label :password_confirmation %><br />
+										    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+										  </div>
+
+										  <div class="actions">
+										    <%= f.submit "Sign up" %>
+										  </div>
+										<% end %>
+<!--
+											<div class="span8">
+											 <h4>New Customer</h4>
+											 <%=form_tag checkout_register_path do %>
+												 <fieldset>
+													 <div class="control-group">
+														 <label class="control-label">Username</label>
+														 <div class="controls">
+															 <input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+														 </div>
+													 </div>
+													 <div class="control-group">
+														 <label class="control-label">Password</label>
+														 <div class="controls">
+														 <input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
+														 </div>
+													 </div>
+
+													 <div class="control-group">
+														 <label class="control-label">Confirm Password</label>
+														 <div class="controls">
+														 <input type="password" placeholder="Confirm your password" id="password" class="input-xlarge">
+														 </div>
+													 </div>
+
+													 <button class="btn btn-inverse">Continue</button>
+												 </fieldset>
+											 <%end%>
+										 </div> -->
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<%end%>
+						<%if !@confirm_order_accordian%>
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Account &amp; Billing Details</a>
+								</div>
+								<%if current_user%>
+								<div id="collapseTwo" class="accordion-body collapse">
+									<div class="accordion-inner">
+										<div class="row-fluid">
+											<div class="span6">
+												<h4>Your Personal Details</h4>
+												<%=form_for(@checkout_new,url:checkout_index_path,method: :post) do |o|%>
+												<div class="control-group">
+													<label class="control-label">First Name</label>
+													<div class="controls">
+														<%=o.text_field :first_name , {:class => 'input-xlarge', :placeholder => 'First Name'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">Last Name</label>
+													<div class="controls">
+														<%=o.text_field :last_name , {:class => 'input-xlarge', :placeholder => 'Last Name'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">Email Address</label>
+													<div class="controls">
+													<%=o.text_field :email_address , {:class => 'input-xlarge', :placeholder => 'Email Address'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">Phone</label>
+													<div class="controls">
+														<%=o.text_field :phone , {:class => 'input-xlarge', :placeholder => 'Phone'}%>
+													</div>
+												</div>
+											</div>
+											<div class="span6">
+												<h4>Your Address</h4>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> House Number</label>
+													<div class="controls">
+														<%=o.text_field :house_no , {:class => 'input-xlarge', :placeholder => ' House Number'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">Street Name</label>
+													<div class="controls">
+														<%=o.text_field :street_name , {:class => 'input-xlarge', :placeholder => ' Street Name'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> Landmark</label>
+													<div class="controls">
+														<%=o.text_field :landmark , {:class => 'input-xlarge', :placeholder => 'Landmark'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> City</label>
+													<div class="controls">
+														<%=o.text_field :city , {:class => 'input-xlarge', :placeholder => 'City'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> Post Code:</label>
+													<div class="controls">
+														<%=o.text_field :pincode , {:class => 'input-xlarge', :placeholder => 'Post Code'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> Country</label>
+													<div class="controls">
+														<!-- <select class="input-xlarge">
+															<option value="India">India</option>
+															<option value="London">London</option>
+															<option value="China">China</option>
+															<option value="Cannada">Cannada</option>
+															<option value="Germany">Germany</option>
+														</select> -->
+													<%=o.text_field :country , {:class => 'input-xlarge', :placeholder => 'Country'}%>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label"><span class="required">*</span> Region / State</label>
+													<div class="controls">
+														<!-- <select name="zone_id" class="input-xlarge">
+															<option value=""> --- Please Select --- </option>
+															<option value="3513">Aberdeen</option>
+															<option value="3514">Aberdeenshire</option>
+															<option value="3515">Anglesey</option>
+															<option value="3516">Angus</option>
+															<option value="3517">Argyll and Bute</option>
+														</select> -->
+														<%=o.text_field :state , {:class => 'input-xlarge', :placeholder => 'State'}%>
+													</div>
+												</div>
+												<%=o.submit%>
+											</div>
+											<%end%>
+										</div>
+									</div>
+								</div>
+								<%end%>
+							</div>
+							<%end%>
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Confirm Order</a>
+								</div>
+											<%if current_user && @confirm_order_accordian%>
+								<div id="collapseThree" class="accordion-body collapse">
+									<div class="accordion-inner">
+										<div class="row-fluid">
+											<%=form_for(@comments,url:checkout_register_path,method: :post) do |o|%>
+											<div class="control-group">
+												<label for="textarea" class="control-label">Comments</label>
+												<div class="controls">
+													<%=o.text_area :comments , {:class => 'span12'}%>
+												</div>
+											</div>
+											<%=o.submit 'Confirm Order'%>
+											<%end%>
+										</div>
+									</div>
+								</div>
+								<%end%>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		<script src="/assets/common.js"></script>
+		<script>
+
+
+		$( document ).ready(function()
+		{
+			if(window.location.search.slice(4)=='error')
+				{
+				console.log("hello");
+
+				document.getElementById('collapseOne').style.display ='block'
+
+				outer_div=document.getElementsByClassName('row-fluid')
+				outer_div[0].style.display = 'none';
+
+				outer_div_changed=document.getElementsByClassName('row-fluid_changed')
+				outer_div_changed[0].style.display = 'block';
+				};
+
+		});
+
+		document.getElementById("continue-btn").addEventListener("click", function(){
+			if (document.getElementById('register').checked)
+				{
+					option_value = document.getElementById('register').value;
+					console.log(option_value);
+
+				  outer_div=document.getElementsByClassName('row-fluid')
+					outer_div[0].style.display = 'none';
+
+					outer_div_changed=document.getElementsByClassName('row-fluid_changed')
+					outer_div_changed[0].style.display = 'block';
+				}
+		});
+
+		</script>
+		<script>
+
+				var myFunc = function() {
+
+					console.log("hellooololol")
+
+					$('#loading').hide();
+
+				}
+				window.onload = function() {
+					console.log("yoyo");
+					setTimeout(myFunc, 1000);
+				}
+		</script>
+    </body>
+</html>

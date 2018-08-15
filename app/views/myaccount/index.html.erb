@@ -1,0 +1,346 @@
+<!-- <div>
+  <a href="" class="">
+      <div>
+          <div>
+              <div>
+                  <div>
+                        <img src="">
+                  </div>
+                  <div>
+                        <h3></h3>
+                      <div>
+                        <span></span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </a>
+
+</div> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<link href="/assets/flexslider.css" rel="stylesheet"/>
+<link href="/assets/main.css" rel="stylesheet"/>
+
+<!-- scripts -->
+
+<script src="/assets/jquery-1.7.2.min.js"></script>
+<script src="/assets/superfish.js"></script>
+<script src="/assets/jquery.scrolltotop.js"></script>
+<style>
+.menu {
+display: inline-block;
+
+background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+-webkit-border-radius:0.2em;
+-moz-border-radius:0.2em;
+border-radius:0.2em;
+
+border:1px solid #cecece;
+
+-webkit-box-shadow:
+    inset 0px 1px 0px #fff,
+    0px 1px 2px rgba(0,0,0,.06);
+-moz-box-shadow:
+    inset 0px 1px 0px #fff,
+    0px 1px 2px rgba(0,0,0,.06);
+box-shadow:
+    inset 0px 1px 0px #fff,
+    0px 1px 2px rgba(0,0,0,.06);
+}
+
+.menu li {
+float:left;
+position:relative;
+
+border-right:1px solid #d8d8d8;
+border-left:1px solid #ffffff;
+}
+.menu li:first-child { border-left:none; }
+.menu li:last-child  { border-right:none;}
+
+
+span {
+position:absolute;
+top:-2em;
+right: 0.5em;
+
+width: 1.5em;
+height: 1.5em;
+
+line-height:1.5em;
+text-align:center;
+
+ont-family:'Helvetica Neue', Helvetica, sans-serif;
+font-weight:bold;
+color:#fff;
+text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+-webkit-box-shadow:
+    inset 0px 1px 0px rgba(255,255,255,35),
+    0px 1px 1px rgba(0,0,0,.2);
+-moz-box-shadow:
+    inset 0px 1px 0px rgba(255,255,255,.35),
+    0px 1px 1px rgba(0,0,0,.2);
+box-shadow:
+    inset 0px 1px 0px rgba(255,255,255,.35),
+    0px 1px 1px rgba(0,0,0,.2);
+
+-webkit-border-radius:4em;
+-moz-border-radius:4em;
+border-radius:4em;
+
+opacity:0;
+filter: alpha(opacity=0);
+
+-webkit-transition: .3s top ease-in, .3s opacity ease-in;
+-moz-transition: .3s top ease-in, .3s opacity ease-in;
+-o-transition: .3s top ease-in, .3s opacity ease-in;
+-ms-transition: .3s top ease-in, .3s opacity ease-in;
+transition: .3s top ease-in, .3s opacity ease-in;
+}
+
+.blue {
+background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+border:1px solid #79b5cb;
+}
+.menu li a {
+color: #343434;
+}
+
+.menu li a span {
+top:-1em;
+opacity:1;
+filter: alpha(opacity=100);
+}
+a:link {
+text-decoration: none;
+}
+.rows
+{
+  width: 100%;
+  margin-left:100px;
+  margin-top: 50px;
+}
+
+.outer-box
+{
+  margin: 35px;
+  height: 40%;
+  width: 33%;
+  display: inline-table;
+  border-radius: 5px;
+  border: 1px #ddd solid;
+  background-color: #fff;
+}
+
+.img-box
+{
+  height: 110px;
+  width: 24%;
+  display: inline-block;
+}
+
+.text-box
+{
+  width: 24%;
+  height: 87px;
+  display: inline-block;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 9px;
+}
+
+a
+{
+  display: block;
+}
+
+a:hover
+{
+  background-color: #c1cad2;
+}
+
+</style>
+<div id="top-bar" class="container">
+  <div class="row">
+    <div class="span4">
+      <form method="POST" class="search_form">
+        <input type="text" class="input-block-level search-query" Placeholder="eg. Bed">
+      </form>
+    </div>
+    <div class="span8" style="width:770px;">
+      <div class="account pull-right">
+        <ul class="user-menu menu">
+          <li><%=link_to"Home",root_path%></li>
+          <%if current_user%>
+            <li><%=link_to"My Account",my_account_index_path%></li>
+          <%end%>
+          <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <%if current_user%>
+          <li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+          <%end%>
+          <%if !current_user%>
+          <li><%=link_to"Register",new_user_registration_path%></li>
+          <li><%=link_to"Login",new_user_session_path%></li>
+          <%end%>
+          <!-- <li><%=link_to"Home",root_path%></li> -->
+          <!-- <%if current_user%> -->
+          <!-- <%if @shoppingcart_length!=0%> -->
+          <!-- <li><%=link_to"My Account",my_account_index_path%></li> -->
+          <!-- <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li> -->
+          <!-- <li><a href="/checkout/new">Checkout</a></li> -->
+          <!-- <%end%> -->
+          <!-- <li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+
+          <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+          <li><%=link_to"Join",new_user_registration_path%></li>
+          <li><%=link_to"Login",new_user_session_path%></li> -->
+          <!-- <%end%> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="container">
+  <section class="navbar main-menu">
+    <div class="navbar-inner main-menu" style="width:100%;">
+      <a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+      <nav id="menu" class="pull-right">
+        <ul>
+          <li><a href="#">Filter</a>
+            <ul>
+              <li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
+              <li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
+              <li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
+            </ul>
+          </li>
+          <li><a href="./products.html">Category</a>
+            <ul>
+              <li><a href="./products.html">Gifts </a></li>
+              <li><a href="./products.html">Ties and Hats</a></li>
+              <li><a href="./products.html">Cold Weather</a></li>
+            </ul>
+          </li>
+          <li><a href="./products.html">Today's Deal</a></li>
+          <li><a href="./products.html">Trending</a></li>
+          <li><a href="./products.html">Customer Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+<div class="rows">
+
+    <div class="outer-box">
+      <a href="/myaccount/myorders" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/Box.png" style="margin:4px;margin-top: 26px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Your Orders</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="/shoppingcart" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/shoppingcart.png" style="margin:3px;padding: 15px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Shopping Cart</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="/myaccount/myaddress" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/address.png" style="margin:4px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Your Addresses</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/lock.png" style="margin:4px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Login & Security</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/fav.png" style="margin:4px; height: 77px;padding: 13px;margin-top: 14px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Favourites</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="outer-box">
+      <a href="" class="a_tag">
+      <div class="img-box">
+        <img src="/assets/emporio.png" style="margin:4px; padding: 12px;margin-top: 13px;">
+      </div>
+      <div class="text-box">
+          <div class="text-box-1">
+            <h4><bold>Emporio Pay Balance</bold></h4>
+          </div>
+          <div class="text-box-2">
+            <h5>Track,Return,or Buy Things again</h5>
+          </div>
+      </div>
+    </a>
+    </div>
+
+</div>
+<script src="/assets/common.js"></script>
+<script src="/assets/jquery.flexslider-min.js"></script>

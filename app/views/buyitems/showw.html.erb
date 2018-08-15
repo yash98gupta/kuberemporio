@@ -1,0 +1,127 @@
+<style>
+#buyitems
+{
+  display:hidden;
+}
+</style>
+<ul>
+  <li style="display:inline-block;">
+<div style="margin:10px;margin-left:22px;">
+  <%=image_tag(@article_show.articleimg.url(:medium))%>
+</div>
+</li>
+<li style="display:inline-block;vertical-align:middle; width:70%;">
+  <b>Name:<%=@article_show.name%></b>
+  <br>
+  <b>Quantity:<%=@article_show.quantity%></b>
+  <br>
+  <b>company:<%=@article_show.company%></b>
+  <br>
+  <b>Discount:<%=@article_show.discount%></b>
+  <br>
+  <!-- colour:<%=@article_show.colour%> -->
+  <!-- <br> -->
+  <!-- description:<%=@article_show.description%> -->
+  <!-- <br> -->
+  <!-- weight:<%=@article_show.weight%> -->
+  <!-- <br> -->
+  <%(@sum/@total).times do  %>
+   <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  <br>
+  <%if @article_rated!=nil%>
+  Your rating:<%=@article_rated.user_rating%>
+  <%end%>
+  <br>
+  <h2><b>price:<%=@article_show.price%>$</b></h2>
+  <br>
+  <!-- <br> -->
+  <!-- Material:<%=@article_show.material%> -->
+  <!-- <br> -->
+  <!-- <br> -->
+  <!-- reviews:<%=@article_show.review%> -->
+  <!-- <br> -->
+  <!-- height:<%=@article_show.height%> -->
+  <div class="quantity">
+       <button class="plus-btn plus-btn" type="button" name="button">
+         <i class="fas fa fa-plus"></i>
+       </button>
+       <%if @cart_exists!=nil%>
+       <input type="text" name="name" value=<%=@cart_exists.quantity%> class="input_value">
+       <%else%>
+       <input type="text" name="name" value="0" class="input_value">
+       <%end%>
+       <button class="minus-btn" type="button" name="button">
+        <i class="fas fa fa-minus minus-btn"></i>
+       </button>
+  </div>
+        <%=form_for @item_new, :url => {:action=>"create", :controller=>"shoppingcart"} do |f|%>
+        <%= f.hidden_field :item_name, :value => @article_show.name %>
+        <%= f.hidden_field :item_price, :value => @article_show.price %>
+        <%= f.hidden_field :item_id, :value => @article_show.id %>
+        <%= f.hidden_field :item_quantity ,:class => 'hiddenqty', :value=>'' %>
+         <%= f.button :submit,:class => 'submit' do %>
+           <i class="fas fa fa-shopping-cart"></i> Buy
+         <% end %>
+        <%end%>
+     <%if @article_rated==nil && current_user%>
+     <%=render 'modal'%>
+     <%end%>
+</li>
+</ul>
+<br>
+<ul>
+<li style="display:inline-block;">
+<div>
+  <%=image_tag(@article_show.articleimg1.url(:thumb))%>
+</div>
+</li>
+<li style="display:inline-block;">
+<div>
+  <%=image_tag(@article_show.articleimg2.url(:thumb))%>
+</div>
+</li>
+<li style="display:inline-block;">
+<div>
+  <%=image_tag(@article_show.articleimg3.url(:thumb))%>
+</div>
+</li>
+<li style="display:inline-block;">
+<div>
+  <%=image_tag(@article_show.articleimg4.url(:thumb))%>
+</div>
+</li>
+</ul>
+<br>
+<%=link_to"back",homepage_index_root_path(:id=>@filter)%>
+<script>
+
+$(document).ready(function(){
+
+ $('.submit').click(function(){
+   var innerr = document.getElementsByClassName('input_value');
+   var inner=parseInt(innerr[0].value);
+  $('.hiddenqty').val(inner);
+ });
+});
+</script>
+<script>
+var minus = document.getElementsByClassName('minus-btn')
+minus[0].addEventListener("click",function(){
+  var innerr = document.getElementsByClassName('input_value');
+  var inner=parseInt(innerr[0].value);
+  if(inner>0)
+  {
+  innerr[0].value = inner-1;
+  }
+  console.log(inner);
+});
+
+var plus = document.getElementsByClassName('plus-btn')
+plus[0].addEventListener("click",function(){
+  var innerr = document.getElementsByClassName('input_value');
+  var inner=parseInt(innerr[0].value);
+  innerr[0].value = inner+1;
+  console.log(inner);
+});
+</script>

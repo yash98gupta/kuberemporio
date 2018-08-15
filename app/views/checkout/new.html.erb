@@ -1,0 +1,10 @@
+
+<%=form_for @checkout , :url => {:controller => "checkout", :action => "create"} do |f|%>
+Address:<%=f.text_field :address%>
+<br>
+Pincode:<%=f.number_field :pincode%>
+<br>
+phone:<%=f.number_field :phone%>
+<br>
+<%=f.submit%>
+<%end%>

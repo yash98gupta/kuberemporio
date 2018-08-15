@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+
+		<!-- bootstrap -->
+		<link href="/assets/bootstrap.min.css" rel="stylesheet">
+		<link href="/assets/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/assets/bootstrappage.css" rel="stylesheet"/>
+
+		<!-- global styles -->
+		<link href="/assets/main.css" rel="stylesheet"/>
+		<link href="/assets/jquery.fancybox.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="/assets/jquery-1.7.2.min.js"></script>
+		<script src="/assets/bootstrap.min.js"></script>
+		<script src="/assets/superfish.js"></script>
+		<script src="/assets/jquery.scrolltotop.js"></script>
+		<script src="/assets/jquery.fancybox.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+    <style>
+		.speech-bubble {
+			float: right;
+			width: 40px;
+			position: relative;
+			background: #2196f3;
+			border-radius: .4em;
+			z-index: 1;
+			margin-bottom: -21px;
+		}
+
+		.speech-bubble:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-top-color: #2196f3;
+			border-bottom: 0;
+			border-left: 0;
+			margin-left: -7px;
+			margin-bottom: -10px;
+		}
+		.heart_red
+		{
+			margin-bottom: -21px;
+		    float: left;
+		    margin-left: 9px;
+		    font-size: 1.45em;
+		    display:inline-block;
+		    color: #e2470d;
+		    position: relative;
+		}
+		.heart_redd
+		{
+			margin-bottom: -21px;
+				float: left;
+				margin-left: 9px;
+				font-size: 1.45em;
+				display:none;
+				color: #e2470d;
+				position: relative;
+		}
+    .main_img
+    {
+      width: 100%
+    }
+
+    #img_container
+    {
+      height: 70px;
+      width: 70px;
+    }
+
+    .img_display
+    {
+      height: 60px;
+      width: 60px;
+    }
+
+    .menu {
+    display: inline-block;
+
+    background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(240, 240, 240));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#f0f0f0');
+
+    -webkit-border-radius:0.2em;
+    -moz-border-radius:0.2em;
+    border-radius:0.2em;
+
+    border:1px solid #cecece;
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    -moz-box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    box-shadow:
+        inset 0px 1px 0px #fff,
+        0px 1px 2px rgba(0,0,0,.06);
+    }
+
+    .menu li {
+    float:left;
+    position:relative;
+
+    border-right:1px solid #d8d8d8;
+    border-left:1px solid #ffffff;
+    }
+    .menu li:first-child { border-left:none; }
+    .menu li:last-child  { border-right:none;}
+
+
+    span {
+    position:absolute;
+    top:-2em;
+    right: 0.5em;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    line-height:1.5em;
+    text-align:center;
+
+    ont-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0px 1px 0px rgba(0,0,0,.15);
+
+    -webkit-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,35),
+        0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+    box-shadow:
+        inset 0px 1px 0px rgba(255,255,255,.35),
+        0px 1px 1px rgba(0,0,0,.2);
+
+    -webkit-border-radius:4em;
+    -moz-border-radius:4em;
+    border-radius:4em;
+
+    opacity:0;
+    filter: alpha(opacity=0);
+
+    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+    -moz-transition: .3s top ease-in, .3s opacity ease-in;
+    -o-transition: .3s top ease-in, .3s opacity ease-in;
+    -ms-transition: .3s top ease-in, .3s opacity ease-in;
+    transition: .3s top ease-in, .3s opacity ease-in;
+    }
+
+    .blue {
+    background-image: -webkit-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -moz-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -o-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: -ms-linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    background-image: linear-gradient(top, rgb(172, 228, 248), rgb(108, 205, 243));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ace4f8', EndColorStr='#6ccdf3');
+
+    border:1px solid #79b5cb;
+    }
+    .menu li a {
+    color: #343434;
+    }
+
+    .menu li a span {
+    top:-1em;
+    opacity:1;
+    filter: alpha(opacity=100);
+    }
+    a:link {
+    text-decoration: none;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="top-bar" class="container" style="width:91%;">
+      <div class="row">
+        <div class="span4">
+          <form method="POST" class="search_form">
+            <input type="text" class="input-block-level search-query" Placeholder="eg. Bed">
+          </form>
+        </div>
+        <div class="span8" style="width:700px;">
+          <div class="account pull-right">
+            <ul class="user-menu menu">
+							<li><%=link_to"Home",root_path%></li>
+							<%if current_user%>
+								<li><%=link_to"My Account",my_account_index_path%></li>
+							<%end%>
+							<li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+							<li><a href="/checkout">Checkout</a></li>
+							<%if current_user%>
+							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+							<%end%>
+							<%if !current_user%>
+							<li><%=link_to"Register",new_user_registration_path%></li>
+							<li><%=link_to"Login",new_user_session_path%></li>
+							<%end%>
+              <!-- <li><%=link_to"Home",root_path%></li> -->
+              <!-- <%if current_user%> -->
+              <!-- <%if @shoppingcart_length!=0%> -->
+              <!-- <li><%=link_to"My Account",my_account_index_path%></li> -->
+              <!-- <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li> -->
+              <!-- <li><a href="/checkout/new">Checkout</a></li> -->
+              <!-- <%end%> -->
+              <!-- <li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+
+              <li><a href="/shoppingcart">Your Cart<span class="blue"><%=@shoppingcart_length%></span></a></li>
+              <li><%=link_to"Join",new_user_registration_path%></li>
+              <li><%=link_to"Login",new_user_session_path%></li> -->
+              <!-- <%end%> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper" class="container" style="width:91%;">
+      <section class="navbar main-menu">
+        <div class="navbar-inner main-menu" style="width:100%;">
+          <a href="index.html" class="logo pull-left"><bold><h1 style="position:absolute;color:red;margin:-11px;font-weight:600;font-family:initial">KuberEmporio<h1></bold></a>
+          <nav id="menu" class="pull-right" style="position: relative;top: -13px;">
+            <ul>
+              <li><a href="#">Filter</a>
+                <ul>
+                  <li><%=link_to"Price:High to Low",homepage_index_root_path(:id => '1')%></li>
+                  <li><%=link_to"Price:Low to High",homepage_index_root_path(:id => '2')%></li>
+                  <li><%=link_to"Ratings",homepage_index_root_path(:id => '3')%></li>
+                </ul>
+              </li>
+              <li><a href="./products.html">Category</a>
+                <ul>
+                  <li><a href="./products.html">Gifts </a></li>
+                  <li><a href="./products.html">Ties and Hats</a></li>
+                  <li><a href="./products.html">Cold Weather</a></li>
+                </ul>
+              </li>
+              <li><a href="./products.html">Today's Deal</a></li>
+              <li><a href="./products.html">Trending</a></li>
+              <li><a href="./products.html">Customer Service</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+			<section class="header_text sub">
+			<img style="height:500px"class="pageBanner" src="/assets/sc.jpg" alt="New products" >
+				<h4><span>Product Detail</span></h4>
+			</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span9">
+						<div class="row">
+							<div class="span4">
+								<a href= "<%=@article_show.articleimg.url%>" class="thumbnail" data-fancybox-group="group1" title="Description 1">  <%=image_tag(@article_show.articleimg.url(:medium),:class => "main_img")%></a>
+								<ul class="thumbnails small">
+									<li class="span1">
+										<%if @article_show.favourite==true%>
+										<div class="heart_red" style="top:-375px;"><i style="font-size:1.45em;" class="fas fa-heart" id="heart_red_s<%=@article_show.id%>5" onclick="heart_js('heart_red_s<%=@article_show.id%>5',<%=@article_show.id%>)"></i></div>
+										<%else%>
+										<div class="heart_red" style="top:-375px;"><i style="font-size:1.45em;" class="far fa-heart" id="heart_red_s<%=@article_show.id%>5" onclick="heart_js('heart_red_s<%=@article_show.id%>5',<%=@article_show.id%>)"></i></div>
+										<%end%>
+										<a href="<%=@article_show.articleimg1.url%>" id="img_container" class="thumbnail" data-fancybox-group="group1" title="Description 2">
+											<%if @article_show.discount != 0.0%>
+												<div class="speech-bubble speech-bubble:after" style="top:-385px;left: 300px;text-align: center;color: white;">
+													<%=@article_show.discount.to_i%>%</div>
+											<%end%>
+											<%=image_tag(@article_show.articleimg1.url(:thumb),:class => "img_display")%>
+									 </a>
+									</li>
+									<li class="span1">
+										<a href="<%=@article_show.articleimg2.url%>" id="img_container" class="thumbnail" data-fancybox-group="group1" title="Description 3"><%=image_tag(@article_show.articleimg2.url(:thumb),:class => "img_display")%></a>
+									</li>
+									<li class="span1">
+										<a href="<%=@article_show.articleimg3.url%>" id="img_container" class="thumbnail" data-fancybox-group="group1" title="Description 4"><%=image_tag(@article_show.articleimg3.url(:thumb),:class => "img_display")%></a>
+									</li>
+									<li class="span1">
+										<a href="<%=@article_show.articleimg4.url%>" id="img_container" class="thumbnail" data-fancybox-group="group1" title="Description 5"><%=image_tag(@article_show.articleimg4.url(:thumb),:class => "img_display")%></a>
+									</li>
+								</ul>
+							</div>
+							<div class="span5">
+								<address>
+                  <h5><strong>Name:</strong>&nbsp <%=@article_show.name%><br></h5>
+									<h5><strong>Brand:</strong>&nbsp <%=@article_show.company%><br></h5>
+                  <%if @article_show.discount!=0%>
+									<h5><strong>Discount:</strong>&nbsp <%=@article_show.discount.to_i%>%<br></h5>
+                  <%end%>
+                  <%if @article_show.quantity==0%>
+									<h5><strong>Availability:</strong>&nbsp Out Of Stock<br></h5>
+                  <%else%>
+                  <h5><strong>Availability:</strong>&nbsp In Stock<br></h5>
+                  <%end%>
+								</address>
+								<%if @article_show.discount!=0%>
+								<h3><strong>Price: <strike>₹<%=@article_show.price%></strike>&nbsp<%=@article_show.price-((@article_show.discount)*(@article_show.price))/100%></strong></h3>
+								<%else%>
+								<h3><strong>Price: ₹<%=@article_show.price%></strong></h3>
+								<%end%>
+								<!-- <form class="form-inline">
+									<label>Qty:</label>
+									<input type="text" class="span1" placeholder="1">
+									<button class="btn btn-inverse" type="submit">Add to cart</button>
+								</form> -->
+								<br>
+								<div class="quantity">
+							       <button class="minus-btn" type="button" name="button" style="width: 27px;padding: 0px;margin-bottom: 6px;border-radius: 50%;">
+							        <div><i class="fas fa fa-minus minus-btn"></i></div>
+							       </button>
+							       <%if @item_in_shoppingcart != nil%>
+							       <input type="text" name="name" value='<%=@item_in_shoppingcart.quantity%>' class="input_value span1">
+							       <%else%>
+							       <input type="text" name="name" value="1" class="span1 input_value">
+							       <%end%>
+										 <button class="plus-btn plus-btn" type="button" name="button" style="width: 27px;padding: 0px;margin-bottom: 6px;border-radius: 50%;">
+		 							     <div><i class="fas fa fa-plus"></i></div>
+		 							    </button>
+
+							  </div>
+					        <%=form_for @item_new, :url => {:action=>"create", :controller=>"shoppingcart"} do |f|%>
+					        <%= f.hidden_field :item_name, :value => @article_show.name %>
+					        <%= f.hidden_field :item_price, :value => @article_show.price %>
+					        <%= f.hidden_field :item_id, :value => @article_show.id %>
+									<%= f.hidden_field :discount, :value => @article_show.discount %>
+					        <%= f.hidden_field :item_quantity ,:class => 'hiddenqty', :value=>'1' %>
+					         <%= f.button :submit,:class => 'submit btn btn-inverse' do %>
+					           <i class="fas fa fa-shopping-cart"></i>  Add to cart
+					         <% end %>
+					        <%end%>
+							</div>
+						</div>
+						<div class="row">
+							<div class="span9">
+								<ul class="nav nav-tabs" id="myTab">
+									<li class="active"><a href="#home">Description</a></li>
+									<li class=""><a href="#profile">Additional Information</a></li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="home">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</div>
+									<div class="tab-pane" id="profile">
+										<table class="table table-striped shop_attributes">
+											<tbody>
+												<tr class="">
+													<th>Size</th>
+													<td>Large, Medium, Small, X-Large</td>
+												</tr>
+												<tr class="alt">
+													<th>Colour</th>
+													<td>Orange, Yellow</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="span9">
+								<br>
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><strong>Related</strong> Products</span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel-1" data-slide="prev"></a><a class="right button" href="#myCarousel-1" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel-2" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">
+												<%@article_recommended.each do |a|%>
+												<li class="span3">
+													<div class="product-box">
+														<%if a.favourite==true%>
+														<div class="heart_redd" id="heart_red_display<%=a.id%>12" onmousemove="heart_js_show(heart_red_display<%=a.id%>12.id)"><i class="fas fa-heart" id="heart_red_s<%=a.id%>12" onclick="heart_js('heart_red_s<%=a.id%>9',<%=a.id%>)"></i></div>
+														<%else%>
+															<div class="heart_redd" id="heart_red_display<%=a.id%>12" onmousemove="heart_js_show(heart_red_display<%=a.id%>12.id)"><i class="far fa-heart" id="heart_red_s<%=a.id%>12" onclick="heart_js('heart_red_s<%=a.id%>9',<%=a.id%>)"></i></div>
+                            <%end%>
+																<!-- <div class="heart_red" id="heart_red_display<%=a.id%>1" onmousemove="heart_js_show(heart_red_display<%=a.id%>1.id)"><i class="far fa-heart"></i></div> -->
+														<%if a.discount != 0.0%>
+														<div class="speech-bubble speech-bubble:after" style="text-align: center;color: white;top: -11px;"><%=a.discount.to_i%>%</div>
+														<%end%>
+														<p><p onmousemove="heart_js_show(heart_red_display<%=a.id%>12.id)" onmouseout="heart_js_hide(heart_red_display<%=a.id%>12.id)"><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
+														<a href="/buyitems/<%=a.id%>" class="title"><%=a.name%></a><br/>
+														<a href="/buyitems/<%=a.id%>" class="category"><%=a.company%></a>
+														<p class="price">$<%=a.price%></p>
+													</div>
+												</li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="span3 col"> initially it was this  -->
+            <div class="span3" style="width:20%;margin-left:1px">
+						<div class="block">
+							<ul class="nav nav-list">
+								<li class="nav-header">SUB CATEGORIES</li>
+								<li><a href="products.html">Nullam semper elementum</a></li>
+								<li class="active"><a href="products.html">Phasellus ultricies</a></li>
+								<li><a href="products.html">Donec laoreet dui</a></li>
+								<li><a href="products.html">Nullam semper elementum</a></li>
+								<li><a href="products.html">Phasellus ultricies</a></li>
+								<li><a href="products.html">Donec laoreet dui</a></li>
+							</ul>
+							<br/>
+							<ul class="nav nav-list below">
+								<li class="nav-header">MANUFACTURES</li>
+								<li><a href="products.html">Adidas</a></li>
+								<li><a href="products.html">Nike</a></li>
+								<li><a href="products.html">Dunlop</a></li>
+								<li><a href="products.html">Yamaha</a></li>
+							</ul>
+						</div>
+						<div class="block">
+							<h4 class="title">
+								<span class="pull-left"><span class="text">Randomize</span></span>
+								<span class="pull-right">
+									<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+								</span>
+							</h4>
+							<div id="myCarousel" class="carousel slide">
+								<div class="carousel-inner">
+									<div class="active item">
+										<!-- <ul class="thumbnails listing-products">
+											<li class="span3">
+												<div class="product-box">
+													<span class="sale_tag"></span>
+													<a href="product_detail.html"><img alt="" src="/assets/ladies/7.jpg"></a><br/>
+													<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>
+													<a href="#" class="category">Suspendisse aliquet</a>
+													<p class="price">$261</p>
+												</div>
+											</li>
+										</ul> -->
+										<ul class="thumbnails listing-products">
+											<%@article_fav.each do |a|%>
+												<li class="span3">
+													<div class="product-box">
+														<%if a.favourite==true%>
+														<div  class="heart_redd" id="heart_red_display<%=a.id%>10" onmousemove="heart_js_show(heart_red_display<%=a.id%>10.id)"><i class="fas fa-heart" id="heart_red_s<%=a.id%>10" onclick="heart_js('heart_red_s<%=a.id%>10',<%=a.id%>)"></i></div>
+														<%else%>
+														<div class="heart_redd" id="heart_red_display<%=a.id%>10" onmousemove="heart_js_show(heart_red_display<%=a.id%>10.id)"><i class="far fa-heart" id="heart_red_s<%=a.id%>10" onclick="heart_js('heart_red_s<%=a.id%>10',<%=a.id%>)"></i></div>
+														<%end%>
+														<%if a.discount != 0.0%>
+														<div class="speech-bubble speech-bubble:after" style="text-align: center;color: white; margin-right: 56px;"><%=a.discount.to_i%>%</div>
+														<%end%>
+														<p><p onmousemove="heart_js_show(heart_red_display<%=a.id%>10.id)" onmouseout="heart_js_hide(heart_red_display<%=a.id%>10.id)"><%=link_to image_tag(a.articleimg.url(:medium)),buyitem_path(a.id)%></p></p>
+														<p class="price">$<%=a.price%></p>
+													</div>
+												</li>
+											<%end%>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="block">
+							<h4 class="title"><strong>Best</strong> Seller</h4>
+							<ul class="small-product">
+								<li>
+									<a href="#" title="Praesent tempor sem sodales">
+										<img src="/assets/ladies/1.jpg" alt="Praesent tempor sem sodales">
+									</a>
+									<a href="#">Praesent tempor sem</a>
+								</li>
+								<li>
+									<a href="#" title="Luctus quam ultrices rutrum">
+										<img src="/assets/ladies/2.jpg" alt="Luctus quam ultrices rutrum">
+									</a>
+									<a href="#">Luctus quam ultrices rutrum</a>
+								</li>
+								<li>
+									<a href="#" title="Fusce id molestie massa">
+										<img src="/assets/ladies/3.jpg" alt="Fusce id molestie massa">
+									</a>
+									<a href="#">Fusce id molestie massa</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<script src="/assets/common.js"></script>
+		<script>
+			$(function () {
+				$('#myTab a:first').tab('show');
+				$('#myTab a').click(function (e) {
+					e.preventDefault();
+					$(this).tab('show');
+				})
+			})
+			$(document).ready(function() {
+				$('.thumbnail').fancybox({
+					openEffect  : 'none',
+					closeEffect : 'none'
+				});
+
+				$('#myCarousel-2').carousel({
+                    interval: 2500
+                });
+			});
+		</script>
+		<script>
+		var minus = document.getElementsByClassName('minus-btn')
+		minus[0].addEventListener("click",function(){
+		  var innerr = document.getElementsByClassName('input_value');
+		  var inner=parseInt(innerr[0].value);
+		  if(innerr[0].value>1)
+		  {
+		  innerr[0].value = innerr[0].value-1;
+		  }
+			$('.hiddenqty').val(innerr[0].value);
+		  console.log(innerr[0].value);
+		});
+
+		var plus = document.getElementsByClassName('plus-btn')
+		plus[0].addEventListener("click",function(){
+		  var innerr = document.getElementsByClassName('input_value');
+		  var inner=parseInt(innerr[0].value);
+		  innerr[0].value = inner+1;
+			$('.hiddenqty').val(innerr[0].value);
+			console.log(innerr[0].value)
+		});
+		</script>
+		<script>
+		function heart_js_show(x)
+		{
+			// console.log(x)
+				var heart = document.getElementById(x);
+				heart.style.display='inline-block'
+
+			}
+			function heart_js_hide(x)
+			{
+				console.log(x)
+					var heart = document.getElementById(x);
+					heart.style.display='none'
+
+				}
+
+		function heart_js(x,y)
+		{
+
+			console.log(x);
+			console.log(y);
+			var icon = document.getElementById(x);
+			// element.classList.remove("far");
+			// element.classList.add("fas");
+			// var icon = $('x');
+				console.log(icon)
+			var icon_fa_prefix = icon.getAttribute('data-prefix');
+
+			if (icon_fa_prefix === 'fas') {
+					icon.setAttribute('data-prefix', 'far');
+
+				$.ajax({
+						url:'/articles/favourites',
+						type:'post',
+						data: { "fav":false,
+						"product_id":y}
+					});
+
+			} else {
+					icon.setAttribute('data-prefix', 'fas');
+					$.ajax({
+							url:'/articles/favourites',
+							type:'post',
+							data: { "fav":true,
+							"product_id":y}
+						});
+			}
+
+		}
+		</script>
+    </body>
+</html>

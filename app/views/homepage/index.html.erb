@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+
+		<!-- global styles -->
+		<link href="/assets/flexslider.css" rel="stylesheet"/>
+		<link href="/assets/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="/assets/jquery-1.7.2.min.js"></script>
+		<script src="/assets/superfish.js"></script>
+		<script src="/assets/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    <body>
+		<div id="top-bar" class="container">
+			<div class="row">
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="eg. Bed" >
+					</form>
+				</div>
+				<div class="span8" style="margin-left: 183px;">
+					<div class="account pull-right">
+						<ul class="user-menu">
+							<li><a href="#">My Account</a></li>
+							<li><a href="/shoppingcart">Your Cart</a></li>
+							<li><a href="/checkout/new">Checkout</a></li>
+							<li><button id="rzp-button1">Pay</button></li>
+							<%if user_signed_in?%>
+							<li><%=link_to"Logout",destroy_user_session_path,method: :delete%></li>
+							<%else%>
+							<li><%=link_to"Join",new_user_registration_path%></li>
+							<li><%=link_to"Login",new_user_session_path%></li>
+							<%end%>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu" style="width:100%;">
+					<a href="index.html" class="logo pull-left"><img src="/assets/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="#">Filter</a>
+								<ul>
+									<li><%=link_to"Price:High to Low",homepage_index_path(:filter_id => '1')%></li>
+									<li><%=link_to"Price:Low to High",homepage_index_path(:filter_id => '2')%></li>
+									<li><%=link_to"Ratings",homepage_index_path(:filter_id => '3')%></li>
+								</ul>
+							</li>
+							<li><a href="./products.html">Man</a></li>
+							<li><a href="./products.html">Sport</a>
+								<ul>
+									<li><a href="./products.html">Gifts and Tech</a></li>
+									<li><a href="./products.html">Ties and Hats</a></li>
+									<li><a href="./products.html">Cold Weather</a></li>
+								</ul>
+							</li>
+							<li><a href="./products.html">Hangbag</a></li>
+							<li><a href="./products.html">Best Seller</a></li>
+							<li><a href="./products.html">Top Seller</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<section  class="homepage-slider" id="home-slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<img src="/assets/ke-1.jpg" alt="" />
+						</li>
+						<li>
+							<img src="/assets/ke-2.jpg" alt=""/>
+							<div class="intro">
+								<h1>Mid season sale</h1>
+								<p><span>Up to 50% Off</span></p>
+								<p><span>On selected items online and in stores</span></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="header_text">
+				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
+				<br/>Don't miss to use our cheap abd best bootstrap templates.
+			</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span12">
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Feature <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											    <%=will_paginate @article_all%>
+											<ul class="thumbnails">
+												<%@article_all.each do |a|%>
+													<li class="span3">
+														<div class="product-box">
+															<span class="sale_tag"></span>
+															<p><p style="height: 220px;width: 220px;"><%=link_to image_tag(a.articleimg.url(:medium),:style =>'height: -webkit-fill-available;'),buyitem_path(a.id,)%></p></p>
+															<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
+															<a href="products.html" class="category">Commodo consequat</a>
+															<p class="price">$<%=a.price%></p>
+														</div>
+													</li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br/>
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel-2" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">
+												<%@article_all.each do |a|%>
+													<li class="span3">
+														<div class="product-box">
+															<span class="sale_tag"></span>
+															<p><p style="height: 220px;width: 220px;"><%=link_to image_tag(a.articleimg.url(:medium),:style =>'height: -webkit-fill-available;'),buyitem_path(a.id)%></p></p>
+															<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
+															<a href="products.html" class="category">Commodo consequat</a>
+															<p class="price">$<%=a.price%></p>
+														</div>
+													</li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row feature_box">
+							<div class="span4">
+								<div class="service">
+									<div class="responsive">
+										<img src="/assets/feature_img_2.png" alt="" />
+										<h4>MODERN <strong>DESIGN</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="service">
+									<div class="customize">
+										<img src="/assets/feature_img_1.png" alt="" />
+										<h4>FREE <strong>SHIPPING</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="service">
+									<div class="support">
+										<img src="/assets/feature_img_3.png" alt="" />
+										<h4>24/7 LIVE <strong>SUPPORT</strong></h4>
+										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="our_client">
+				<h4 class="title"><span class="text">Manufactures</span></h4>
+				<div class="row">
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/14.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/35.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/1.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/2.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/3.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="/assets/clients/4.png"></a>
+					</div>
+				</div>
+			</section>
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span3">
+						<h4>Navigation</h4>
+						<ul class="nav">
+							<li><a href="./index.html">Homepage</a></li>
+							<li><a href="./about.html">About Us</a></li>
+							<li><a href="./contact.html">Contac Us</a></li>
+							<li><a href="./cart.html">Your Cart</a></li>
+							<li><a href="./register.html">Login</a></li>
+						</ul>
+					</div>
+					<div class="span4">
+						<h4>My Account</h4>
+						<ul class="nav">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Newsletter</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<p class="logo"><img src="/assets/logo.png" class="site_logo" alt=""></p>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<br/>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>
+				</div>
+			</section>
+			<section id="copyright">
+				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
+			</section>
+		</div>
+
+
+		<button id="rzp-button1">Pay</button>
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
+	var options = {
+	    "key": "rzp_test_9dNXMHElNIZUh4",
+	    "amount": "2000", // 2000 paise = INR 20
+	    "name": "Merchant Name",
+	    "description": "Purchase Description",
+	    "image": "/your_logo.png",
+	    "handler": function (response){
+	        // alert(response.razorpay_payment_id);
+
+					$.ajax({
+						  url:'/razorpay/console',
+  						type:'post',
+							data: { "amount":options.amount,
+							"payment_id":response.razorpay_payment_id}
+						});
+
+	    },
+	    "theme": {
+	        "color": "#F37254"
+	    }
+	};
+	var rzp1 = new Razorpay(options);
+
+	document.getElementById('rzp-button1').onclick = function(e){
+	    rzp1.open();
+	    e.preventDefault();
+	}
+	</script>
+
+
+
+
+
+		<script src="/assets/common.js"></script>
+		<script src="/assets/jquery.flexslider-min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(document).ready(function() {
+					$('.flexslider').flexslider({
+						animation: "fade",
+						slideshowSpeed: 4000,
+						animationSpeed: 600,
+						controlNav: false,
+						directionNav: true,
+						controlsContainer: ".flex-container" // the container that holds the flexslider
+					});
+				});
+			});
+		</script>
+
+    </body>
+</html>
