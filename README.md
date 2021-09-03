@@ -1,24 +1,16 @@
-# README
+This is an online end-to-end online ecommerce website integrated with Razorpay payment gateway and an admin panel. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo: https://drive.google.com/file/d/1bwlwnDLXYuyU-Oc5qnSfb-xsSiHJL7-k/view?usp=sharing
 
-Things you may want to cover:
+Backend
+Ruby version: 2.5.1
+Rails version: 5.2.0
+Database creation: SQLite database
+Other Technologies: Ruby on Rails, HTML5, CSS3, Jquery, Javascript.
+Steps to setup the platform
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Clone the project/repository
+bundle install
+rake db:migrate
+rails s (backend server will start running on https:localhost:3000)
+visit https://localhost:3000
